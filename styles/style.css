@@ -62,7 +62,7 @@ body{
 .header__exchange-label{
     color: #6A6969;
     font-size: 14px;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 .header__exchange-select {
     width: 195px;
@@ -71,13 +71,14 @@ body{
     border: 1px solid #EBEAEA;
     color: black;
     border-radius: 10px;
-    padding: 0 20px;
+    padding: 0 15px;
     font-size: 16px;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     position: relative;
     outline: none;
+    cursor: pointer;
 }
 
 .header__exchange-arrow {
@@ -86,6 +87,7 @@ body{
     top: 50%;
     transform: translateY(50%);
     width: 15px;
+    pointer-events: none;
 }
 .header__exchange-input{
     width: 195px;
@@ -93,32 +95,35 @@ body{
     background-color: #EBEAEA;
     border: 1px solid #EBEAEA;
     border-radius: 10px;
-    padding: 0 20px;
+    padding: 0 15px;
     font-size: 16px;
     outline: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
-.header__exchange-select--yellow{
+.header__exchange-select--yellow {
     background-color: rgba(251, 237, 160);
     appearance: none;
     border: 1px solid rgba(251, 237, 160);
     border-radius: 10px;
     height: 35px;
-    width: 140px;
+    width: 55px;
     padding: 0 5px;
     -webkit-appearance: none;
     -moz-appearance: none;
     position: relative;
     outline: none;
     font-size: 15px;
-    color: black;
-}
+    color: transparent;
+    background-position: left 5px center !important;
+    cursor: pointer;
+  }
 .header__exchange-line {
     width: 195px;
     height: 45px;
-    padding: 0 5px;
+    padding-right: 5px;
+    padding-left: 15px;
     background-color: #FEDD2B;
     display: flex;
     align-items: center; 
@@ -126,13 +131,97 @@ body{
     gap: 12px; 
     border-radius: 10px;
 }
+.custom-select {
+    position: relative;
+    width: 195px;
+    height: 45px;
+    background-color: #EBEAEA;
+    border: 1px solid #EBEAEA;
+    border-radius: 10px;
+    padding: 0 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.custom-select__selected {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.custom-select__icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.custom-select__text {
+    flex-grow: 1;
+}
+
+.custom-select__options {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #EBEAEA;
+        border: 1px solid #EBEAEA;
+        border-radius: 10px;
+        z-index: 1000;
+        margin-top: 5px;
+        max-height: 0; /* Изначально скрыто */
+        overflow: hidden; /* Скрываем все, что выходит за пределы */
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease; /* Плавное появление */
+}
+
+.custom-select__option {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-select__option:hover {
+    background-color: #D9D9D9;
+}
+
+.custom-select__options.show {
+    max-height: 500px; /* Ограничиваем максимальную высоту, чтобы список не вылезал */
+    opacity: 1;
+}
+.header__custom-select-arrow{
+    position: absolute;
+    right: 10px;
+    transform: translateY(100%);
+    width: 15px;
+    pointer-events: none;
+}
+.header__link{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 310px;
+    height: 70px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    gap: 8px;
+    margin-top: 64px;  /* начальный отступ */
+    transition: margin-top 0.3s ease; /* Плавное движение */
+}
+
+
 @media screen and (max-width: 920px){
     .header__exchange{
         flex-direction: column;
         gap: 12px;
         max-width: 330px;
     }
-
     
 }
 @media screen and (max-width: 800px){
@@ -146,3 +235,6 @@ body{
         max-width: 300px;
     }
 }
+
+
+

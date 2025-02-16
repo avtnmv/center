@@ -105,13 +105,15 @@ body{
     appearance: none;
     border: 1px solid rgba(251, 237, 160);
     border-radius: 10px;
-    height: 30px;
+    height: 35px;
     width: 140px;
     padding: 0 5px;
     -webkit-appearance: none;
     -moz-appearance: none;
     position: relative;
     outline: none;
+    font-size: 15px;
+    color: black;
 }
 .header__exchange-line {
     width: 195px;

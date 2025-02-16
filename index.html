@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__logo">
+            <a href="https://t.me/+4aRxW1GKn1czOTYy" class="header__logo-link">
+                <img src="./assets/images/logo.webp" alt="logo" class="header__logo-img">
+            </a>
+        </div>
+    
+        <h1 class="header__title">Выгодный обмен валют в Турции</h1>
+    
+        <div class="header__description">
+            <p> <span class="header__description-bold">Обменивайте USDT</span> и рубли на доллары, лиры или евро и наоборот.</p>
+            <p>Получайте кэш <span class="header__description-bold">в наших офисах за 3 минуты.</span></p>
+        </div>
+
+        <div class="header__exchange">
+            <div class="header__exchange-block">
+                <label for="city" class="header__exchange-label">Выберите город:</label>
+                <select id="city" class="header__exchange-select">
+                    <option value="Стамбул">Стамбул</option>
+                    <option value="Аланья">Аланья</option>
+                    <option value="Анталья">Анталья</option>
+                    <option value="Мерсин">Мерсин</option>
+                </select>
+            </div>
+        
+            <div class="header__exchange-block">
+                <label for="currency" class="header__exchange-label">Выберите валюту:</label>
+                <select id="currency" class="header__exchange-select" onchange="updateReceiveOptions()">
+                    <option value="usdt">Tether USDT TRC20</option>
+                    <option value="rub">RUB с карты</option>
+                    <option value="uah">UAH с карты</option>
+                    <option value="usd">USD наличные</option>
+                    <option value="eur">EUR наличные</option>
+                </select>
+            </div>
+        
+            <div class="header__exchange-block">
+                <label for="amount" class="header__exchange-label">Отдаете:</label>
+                <input type="text" id="amount" class="header__exchange-input" placeholder="Введите сумму" oninput="updateReceivedAmount()">
+            </div>
+        
+            <div class="header__exchange-block">
+                <label for="receive" class="header__exchange-label">Получаете:</label>
+                <div class="header__exchange-line">
+                    <p id="received-amount" class="header__exchange-received-amount"></p>
+                    <select id="receive" class="header__exchange-select--yellow"></select>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+
+    <main>
+        <section></section>
+    </main>
+
+    <footer></footer>
+
+    <script>
+function updateReceiveOptions() {
+    const receiveSelect = document.getElementById("receive");
+    const currency = document.getElementById("currency").value;
+    
+    // Список активных валют для получения
+    const receiveOptions = {
+        usdt: ["usd", "try"],
+        rub: ["try", "usd"],
+        uah: ["try"],
+        usd: ["usdt"],
+        eur: ["usdt"]
+    };
+
+    // Названия валют для вывода
+    const currencyNames = {
+        usdt: "Tether USDT TRC20",
+        rub: "RUB с карты",
+        uah: "UAH с карты",
+        usd: "USD наличные",
+        eur: "EUR наличные",
+        try: "TRY наличные"
+    };
+
+    // Очищаем список "Получаете"
+    receiveSelect.innerHTML = "";
+
+    // Добавляем только допустимые опции
+    receiveOptions[currency].forEach(val => {
+        let option = document.createElement("option");
+        option.value = val;
+        option.textContent = currencyNames[val];
+        receiveSelect.appendChild(option);
+    });
+
+    // Обновляем сумму в "Получаете"
+    updateReceivedAmount();
+}
+
+// Функция для обновления суммы в "Получаете"
+function updateReceivedAmount() {
+    const amount = parseFloat(document.getElementById("amount").value);
+    const currency = document.getElementById("currency").value;
+    const receiveSelect = document.getElementById("receive");
+
+    // Если сумма не введена, выходим
+    if (!amount || amount <= 0) {
+        return;
+    }
+
+    // Взяли текущую валюту для обмена и получаем валюту
+    const receiveCurrency = receiveSelect.value;
+
+    // Сюда будет помещен курс обмена (для примера используем статические данные)
+    // Этот курс можно получить через API
+    const exchangeRates = {
+        "usdt": { "usd": 1, "try": 23 },
+        "rub": { "try": 0.5, "usd": 0.013 },
+        "uah": { "try": 0.9 },
+        "usd": { "usdt": 1 },
+        "eur": { "usdt": 1.1 }
+    };
+
+    // Рассчитываем получаемую сумму
+    const rate = exchangeRates[currency][receiveCurrency];
+    
+    if (rate) {
+        const receivedAmount = (amount * rate).toFixed(2);
+        document.getElementById("receive").setAttribute("data-amount", receivedAmount);
+    }
+}
+
+// Обновляем список при загрузке страницы
+updateReceiveOptions();
+    </script>
+</body>
+</html>

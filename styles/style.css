@@ -57,6 +57,7 @@ body{
     flex-direction: column;
     gap: 12px;
     text-align: left;
+    position: relative;
 }
 .header__exchange-label{
     color: #6A6969;
@@ -68,15 +69,23 @@ body{
     height: 45px;
     background-color: #EBEAEA;
     border: 1px solid #EBEAEA;
+    color: black;
     border-radius: 10px;
     padding: 0 20px;
     font-size: 16px;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url('../assets/images/arrow.svg'); 
-    background-repeat: no-repeat;
-    background-position: right 20px center;
+    position: relative;
+    outline: none;
+}
+
+.header__exchange-arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(50%);
+    width: 15px;
 }
 .header__exchange-input{
     width: 195px;
@@ -86,6 +95,10 @@ body{
     border-radius: 10px;
     padding: 0 20px;
     font-size: 16px;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 .header__exchange-select--yellow{
     background-color: rgba(251, 237, 160);
@@ -97,10 +110,8 @@ body{
     padding: 0 5px;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url('../assets/images/arrow.svg'); 
-    background-repeat: no-repeat;
-    background-position: right 5px center;
-
+    position: relative;
+    outline: none;
 }
 .header__exchange-line {
     width: 195px;

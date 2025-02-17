@@ -40,32 +40,32 @@
             </div>
         
             <div class="header__exchange-block">
-                <label for="currency" class="header__exchange-label">Выберите валюту:</label>
+                <label class="header__exchange-label">Выберите валюту:</label>
                 <div class="custom-select" onclick="toggleCustomSelect()">
                     <svg class="header__custom-select-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/></svg>
                     <div class="custom-select__selected" onclick="toggleCustomSelect()">
-                        <img src="./assets/images/usdt-icon.svg" class="custom-select__icon" data-value="usdt" onclick="selectOption('usdt')">
+                        <img src="./assets/images/usdt-icon.svg" class="custom-select__icon" data-value="usdt" onclick="selectOption('usdt')" alt="usdt-icon">
                         <span class="custom-select__text">Tether USDT</span>
                     </div>
                     <div class="custom-select__options" id="custom-select-options">
                         <div class="custom-select__option" data-value="usdt" onclick="selectOption('usdt')">
-                            <img src="./assets/images/usdt-icon.svg" class="custom-select__icon">
+                            <img src="./assets/images/usdt-icon.svg" class="custom-select__icon" alt="usdt-icon">
                             <span class="custom-select__text">Tether USDT</span>
                         </div>
                         <div class="custom-select__option" data-value="rub" onclick="selectOption('rub')">
-                            <img src="./assets/images/rub-icon.svg" class="custom-select__icon">
+                            <img src="./assets/images/rub-icon.svg" class="custom-select__icon" alt="rub-icon">
                             <span class="custom-select__text">RUB с карты</span>
                         </div>
                         <div class="custom-select__option" data-value="uah" onclick="selectOption('uah')">
-                            <img src="./assets/images/uah-icon.svg" class="custom-select__icon">
+                            <img src="./assets/images/uah-icon.svg" class="custom-select__icon" alt="uah-icon">
                             <span class="custom-select__text">UAH с карты</span>
                         </div>
                         <div class="custom-select__option" data-value="usd" onclick="selectOption('usd')">
-                            <img src="./assets/images/usd-icon.svg" class="custom-select__icon">
+                            <img src="./assets/images/usd-icon.svg" class="custom-select__icon" alt="usd-icon">
                             <span class="custom-select__text">USD наличные</span>
                         </div>
                         <div class="custom-select__option" data-value="eur" onclick="selectOption('eur')">
-                            <img src="./assets/images/eur-icon.svg" class="custom-select__icon">
+                            <img src="./assets/images/eur-icon.svg" class="custom-select__icon" alt="eur-icon">
                             <span class="custom-select__text">EUR наличные</span>
                         </div>
 
@@ -101,16 +101,54 @@
 
     </header>
 
+    <main class="main">
+        <section class="last-exchange">
+            <div class="last-exchange__container">
+                <h3 class="last-exchange__title">Последние обмены:</h3>
+                <div class="last-exchange__list">
+                    <div class="last-exchange__item"> 
+                        <p class="last-exchange__date">03.01.2025, 14:50</p>
+                        <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                    </div>
+                    <div class="last-exchange__item"> 
+                        <p class="last-exchange__date">03.01.2025, 14:50</p>
+                        <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                    </div>
+                    <div class="last-exchange__item last-exchange__item--hidden"> 
+                        <p class="last-exchange__date">03.01.2025, 14:50</p>
+                        <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                    </div>
+                    <div class="last-exchange__item last-exchange__item--hidden"> 
+                        <p class="last-exchange__date">03.01.2025, 14:50</p>
+                        <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                    </div>
+                    <button class="last-exchange__toggle">
+                        <svg class="last-exchange__toggle-icon" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
 
-    <main>
-        <section></section>
+        <section class="work-process">
+            <h2 class="work-process__title">Как мы работаем?</h2>
+            <p class="work-process__description">Презентация за 1 минуту</p>
+
+            <img src="./assets/images/presentation.jpg" alt="presentation-image" class="work-process__image">
+        
+            <a href="https://t.me/+4aRxW1GKn1czOTYy" class="work-process__link">
+                <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" class="work-process__icon">
+                    <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="black"/>
+                </svg>
+                Смотреть адреса офисов
+            </a>
+        </section>
     </main>
 
     <footer></footer>
 
     <script>
-        // Функция для обновления опций валюты для получения
-function updateReceiveOptions(selectedCurrency) {
+
+    function updateReceiveOptions(selectedCurrency) {
     const receiveSelect = document.getElementById("receive");
 
     const receiveOptions = {
@@ -139,28 +177,26 @@ function updateReceiveOptions(selectedCurrency) {
         try: "./assets/images/try-icon.svg"
     };
 
-    receiveSelect.innerHTML = ""; // Очищаем текущие опции
+    receiveSelect.innerHTML = ""; 
 
     if (receiveOptions[selectedCurrency]) {
         receiveOptions[selectedCurrency].forEach(val => {
             let option = document.createElement("option");
             option.value = val;
-            option.textContent = currencyNames[val]; // Текст будет в выпадающем списке
-            option.dataset.flag = currencyFlags[val]; // Добавляем путь к флагу
+            option.textContent = currencyNames[val]; 
+            option.dataset.flag = currencyFlags[val]; 
             receiveSelect.appendChild(option);
         });
     }
 
-    // Устанавливаем выбранную валюту
     if (receiveSelect.options.length > 0) {
-        receiveSelect.value = receiveSelect.options[0].value; // Проставляем первую валюту
-        updateFlag(receiveSelect); // Обновляем флаг
+        receiveSelect.value = receiveSelect.options[0].value;
+        updateFlag(receiveSelect); 
     }
 
-    updateReceivedAmount(); // Обновляем сумму
+    updateReceivedAmount(); 
 }
 
-// Функция для обновления флага в select
 function updateFlag(select) {
     const selectedOption = select.options[select.selectedIndex];
     const flagPath = selectedOption.dataset.flag;
@@ -170,7 +206,6 @@ function updateFlag(select) {
     select.style.backgroundSize = "20px";
 }
 
-// Функция для обновления суммы получения
 async function updateReceivedAmount() {
     const amount = parseFloat(document.getElementById("amount").value);
     const selected = document.querySelector(".custom-select__selected");
@@ -198,35 +233,29 @@ async function updateReceivedAmount() {
     }
 }
 
-// Функция для получения курсов валют через API (заглушка)
+// Функция API (заглушка)
 async function fetchExchangeRates(fromCurrency, toCurrency) {
-    // Для теста возвращаем заглушку
+    // Заглушка
     return { rate: 1.0 };
 }
 
-// Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function () {
-    // Устанавливаем начальное значение для кастомного селекта
     const selected = document.querySelector(".custom-select__selected");
     if (selected && !selected.dataset.value) {
         selected.dataset.value = "usdt";
     }
 
-    // Инициализируем опции получения валюты
     updateReceiveOptions('usdt');
 
-    // Принудительно обновляем курс при загрузке
     updateReceivedAmount();
 });
 
-// Слушаем изменение в "Получаете"
 const receiveSelect = document.getElementById("receive");
 receiveSelect.addEventListener("change", function () {
-    updateFlag(receiveSelect); // Обновляем флаг
-    updateReceivedAmount(); // Обновляем сумму
+    updateFlag(receiveSelect); 
+    updateReceivedAmount(); 
 });
 
-// Функция для обработки клика по кастомному селекту
 function selectOption(value) {
     const selected = document.querySelector(".custom-select__selected");
     const options = document.querySelectorAll(".custom-select__option");
@@ -234,31 +263,27 @@ function selectOption(value) {
 
     if (selectedOption) {
         selected.innerHTML = selectedOption.innerHTML;
-        selected.dataset.value = value;  // Добавляем data-value
-        updateReceiveOptions(value);  // Передаем выбранную валюту
+        selected.dataset.value = value;  
+        updateReceiveOptions(value);  
     }
 
     toggleCustomSelect();
 }
 
-// Открытие/закрытие кастомного селекта
 function toggleCustomSelect() {
     const options = document.getElementById("custom-select-options");
     options.classList.toggle("show");
 }
 
-// Закрытие кастомного селекта при клике вне его
 window.onclick = function(event) {
     const customSelect = document.querySelector(".custom-select");
     const options = document.getElementById("custom-select-options");
 
-    // Если клик был не по самому селекту или не по его опциям, закрываем
     if (!customSelect.contains(event.target) && options.classList.contains('show')) {
         options.classList.remove('show');
     }
 }
 
-// Слушаем клики по всему контейнеру .custom-select
 document.querySelectorAll('.custom-select').forEach(select => {
     select.addEventListener("click", function() {
         toggleCustomSelect();
@@ -269,29 +294,45 @@ function toggleCustomSelect() {
     const options = document.getElementById("custom-select-options");
     const link = document.querySelector(".header__link");
 
-    // Проверяем, что элементы существуют
     if (!options || !link) {
         console.error("Элементы не найдены: options или link");
         return;
     }
 
-    // Переключаем класс "show"
     options.classList.toggle("show");
 
-    // Получаем ширину окна (разрешение экрана)
     const windowWidth = window.innerWidth;
 
-    // Изменяем отступ ссылки в зависимости от состояния и ширины окна
     if (options.classList.contains("show")) {
-        if (windowWidth > 900) {
-            link.style.marginTop = "180px";  // Добавляем отступ для разрешения <= 900px
+        if (windowWidth > 920) {
+            link.style.marginTop = "180px";  
         } else {
-            link.style.marginTop = "64px";  // Возвращаем исходный отступ для разрешения > 900px
+            link.style.marginTop = "64px";  
         }
     } else {
-        link.style.marginTop = "64px";  // Возвращаем исходный отступ, если меню закрыто
+        link.style.marginTop = "64px"; 
     }
 }
     </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.querySelector(".last-exchange__toggle");
+    const hiddenItems = document.querySelectorAll(".last-exchange__item--hidden");
+    let isOpen = false;
+
+    toggleButton.addEventListener("click", function() {
+        isOpen = !isOpen;
+        hiddenItems.forEach(item => {
+            if (isOpen) {
+                item.classList.add("last-exchange__item--visible");
+            } else {
+                item.classList.remove("last-exchange__item--visible");
+            }
+        });
+        toggleButton.classList.toggle("last-exchange__toggle--open");
+    });
+});
+</script>
 </body>
 </html>

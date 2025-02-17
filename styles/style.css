@@ -204,7 +204,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 310px;
+    max-width: 310px;
     height: 70px;
     background-color: black;
     color: white;
@@ -275,6 +275,7 @@ body{
     cursor: pointer;
     transition: transform 0.3s ease;
     display: none;
+    -webkit-tap-highlight-color: transparent;
     
 }
 
@@ -314,7 +315,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 310px;
+    max-width: 310px;
     height: 70px;
     background-color: #FEDD2B;
     color: white;

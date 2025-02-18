@@ -1,69 +1,103 @@
-// Инициализация Swiper
-let swiper = new Swiper('.mySwiper', {
-    slidesPerView: 6,  // Количество слайдов
-    spaceBetween: 10,  // Расстояние между слайдами
+// Инициализация Swiper для видео
+let swiperVideos = new Swiper('.mySwiperVideos', {
+    slidesPerView: 6,
+    spaceBetween: 10,
+    loop: false,
     navigation: {
-        nextEl: '.custom-next',
-        prevEl: '.custom-prev',
+        nextEl: '.custom-next-video',
+        prevEl: '.custom-prev-video',
     },
     pagination: {
-        el: '.custom-swiper-pagination',
+        el: '.custom-swiper-pagination-video',
         type: 'progressbar',
     },
-    simulateTouch: true, // Разрешаем свайпы только для мобильных устройств
-    keyboard: false,     // Отключаем управление с клавиатуры
-    allowTouchMove: false, // Отключаем все свайпы на десктопе
-    slideToClickedSlide: false, // Отключаем переход к слайду по клику
+    allowTouchMove: false,
+    slideToClickedSlide: false,
     breakpoints: {
-      320: {
-          slidesPerView: 2, // 2 слайда на мобильных
-          spaceBetween: 10,
-      },
-      420: {
-          slidesPerView: 2, // 2 слайда на экранах до 576px
-          spaceBetween: 10,
-      },
-      576: {
-          slidesPerView: 3, // 3 слайда на экранах до 576px
-          spaceBetween: 15,
-      },
-      768: {
-          slidesPerView: 3, // 3 слайда на экранах до 768px
-          spaceBetween: 15,
-      },
-      950: {
-          slidesPerView: 6, // 6 слайдов на экранах до 950px
-          spaceBetween: 10,
-          simulateTouch: false, // Отключаем свайпы на десктопе
-          keyboard: false, // Отключаем управление с клавиатуры
-          allowTouchMove: false, // Отключаем возможность свайпа на десктопе
-      }
+        320: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+        },
+        576: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+        },
+        950: {
+            slidesPerView: 6,
+            spaceBetween: 10,
+            simulateTouch: false,
+        }
     },
     on: {
-        init: function() {
-            updateNavButtons(this);
+        init: function () {
+            if (this.isBeginning) {
+                document.querySelector('.custom-prev-video').classList.add('disabled');
+            }
+            if (this.isEnd) {
+                document.querySelector('.custom-next-video').classList.add('disabled');
+            }
         },
-        slideChange: function() {
-            updateNavButtons(this);
+        reachBeginning: function () {
+            document.querySelector('.custom-prev-video').classList.add('disabled');
+        },
+        reachEnd: function () {
+            document.querySelector('.custom-next-video').classList.add('disabled');
+        },
+        fromEdge: function () {
+            document.querySelector('.custom-prev-video').classList.remove('disabled');
+            document.querySelector('.custom-next-video').classList.remove('disabled');
         }
     }
 });
 
-// Функция для обновления кнопок навигации
-function updateNavButtons(swiper) {
-    const prevButton = document.querySelector('.custom-prev');
-    const nextButton = document.querySelector('.custom-next');
-
-    if (swiper.isBeginning) {
-        prevButton.classList.add('inactive');
-    } else {
-        prevButton.classList.remove('inactive');
+// Инициализация Swiper для изображений
+let swiperImages = new Swiper('.mySwiperImages', {
+    slidesPerView: 6,
+    spaceBetween: 10,
+    loop: false,
+    navigation: {
+        nextEl: '.custom-next-image',
+        prevEl: '.custom-prev-image',
+    },
+    pagination: {
+        el: '.custom-swiper-pagination-image',
+        type: 'progressbar',
+    },
+    allowTouchMove: false,
+    slideToClickedSlide: false,
+    breakpoints: {
+        320: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+        },
+        576: {
+            slidesPerView: 3,
+            spaceBetween: 15,
+        },
+        950: {
+            slidesPerView: 6,
+            spaceBetween: 10,
+            simulateTouch: false,
+        }
+    },
+    on: {
+        init: function () {
+            if (this.isBeginning) {
+                document.querySelector('.custom-prev-image').classList.add('disabled');
+            }
+            if (this.isEnd) {
+                document.querySelector('.custom-next-image').classList.add('disabled');
+            }
+        },
+        reachBeginning: function () {
+            document.querySelector('.custom-prev-image').classList.add('disabled');
+        },
+        reachEnd: function () {
+            document.querySelector('.custom-next-image').classList.add('disabled');
+        },
+        fromEdge: function () {
+            document.querySelector('.custom-prev-image').classList.remove('disabled');
+            document.querySelector('.custom-next-image').classList.remove('disabled');
+        }
     }
-
-    if (swiper.isEnd) {
-        nextButton.classList.add('inactive');
-    } else {
-        nextButton.classList.remove('inactive');
-    }
-}
-
+});

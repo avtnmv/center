@@ -533,11 +533,6 @@ body{
     object-fit: cover;
   }
   
-  .custom-prev.inactive,
-  .custom-next.inactive {
-    color: rgba(204, 204, 204, 0.75);
-  }
-
 
   /*Slider*/
 .swiper {
@@ -575,8 +570,10 @@ body{
   margin-left: 15px;
 }
 
-.custom-prev,
-.custom-next {
+.custom-prev-video,
+.custom-next-video,
+.custom-next-image,
+.custom-prev-image {
     color: #fff;
     cursor: pointer;
     width: 40px;
@@ -592,12 +589,6 @@ body{
     -ms-user-select: none;
 }
 
-
-/* Прогресс-бар */
-.swiper-pagination-progressbar.swiper-pagination-horizontal {
-  width: 150px !important;
-  height: 5px !important;
-}
 
 .custom-swiper-pagination {
   height: 5px !important;
@@ -615,6 +606,7 @@ body{
   display: flex;
   margin-right: 15px;
   margin-left: 15px;
+  position: relative;
 }
 .buttons-container{
   display: flex;
@@ -626,8 +618,31 @@ body{
   background-color: #747F92 !important;
 }
 
+.reviews__telegram-title{
+    margin-top: 32px;
+    font-size: clamp(16px, 2vw, 18px);
+    color: white;
+    margin-bottom: 24px;
+}
+.swiper-slide img, .swiper-slide-content{
+    width: 150px;
+    height: 130px;
+    border-radius: 25px;
+}
+.swiper-pagination-progressbar.swiper-pagination-horizontal {
+    width: 150px !important;
+    height: 5px !important;
+  }
 
-
+  .custom-prev-video.disabled,
+  .custom-next-video.disabled,
+  .custom-prev-image.disabled,
+  .custom-next-image.disabled {
+    color: rgba(204, 204, 204, 0.75);
+  }
+  .reviews__images{
+    margin-bottom: 48px;
+  }
 @media screen and (max-width: 920px) {
     .header__exchange {
         flex-direction: column;
@@ -697,6 +712,9 @@ body{
       .reviews{
         padding: 40px;
       }
+      .buttons-container{
+        width: auto;
+      }
 }
 
 @media screen and (max-width: 420px) {
@@ -737,9 +755,6 @@ body{
         background-image: url(../assets/images/currency-rates-bg-mobile.png);
         height: 1550px;
       }
-      .buttons-container{
-        width: auto;
-      }
       .reviews{
         padding: 25px;
         border-radius: 30px;
@@ -761,6 +776,15 @@ body{
       .reviews__description{
         margin-top: 24px;
         margin-bottom: 24px;
+      }
+      .buttons-container{
+        width: auto;
+      }
+      .reviews__images{
+        margin-bottom: 24px;
+      }
+      .reviews__link{
+        margin: auto;
       }
     
 }

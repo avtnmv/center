@@ -850,6 +850,7 @@ body{
     font-size: 11px;
     color: white;
     margin-top: 16px;
+    max-width: 290px;
 }
 .footer__container{
     max-width: 850px;
@@ -858,6 +859,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.footer__span--yellow{
+    color: #FEDD2B !important;
 }
 @media screen and (max-width: 1250px) {
     .application {

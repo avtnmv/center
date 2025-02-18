@@ -304,7 +304,7 @@ body{
     margin-bottom: 12px;
 }
 .work-process__description{
-    font-size: clamp(18px, 2vw, 22px);
+    font-size: clamp(20px, 2vw, 24px);
     color: white;
     text-align: center;
     font-weight: 300px;
@@ -494,6 +494,23 @@ body{
     }
     .currency-rates__title{
         text-align: left;
+      }
+      .currency-rates__title{
+        max-width: 280px;
+        margin: auto;
+        margin-bottom: 48px;
+      }
+      .currency-rates__vip-text{
+        margin: auto;
+        max-width: 275px;
+        margin-top: 48px;
+      }
+      .currency-rates__link{
+        margin: auto;
+        margin-top: 32px;
+      }
+      .currency-rates__vip-text{
+        margin-top: 32px;
       }
     
 }

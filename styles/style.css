@@ -294,7 +294,7 @@ body{
     max-width: 100%;
     display: block;
     height: auto;
-    margin-bottom: 64px;
+    margin-bottom: 24px;
 }
 .work-process__title{
     font-size: clamp(36px, 5vw, 64px);
@@ -324,7 +324,95 @@ body{
     gap: 8px;
     color: black;
 }
-
+.currency-rates {
+    background-image: url(../assets/images/background.png);
+    border-radius: 80px;
+    background-position: center;
+    display: block;
+    padding: 80px;
+    margin-top: 96px;
+}
+.currency-rates__title {
+    max-width: 890px;
+    font-size: clamp(36px, 5vw, 64px);
+    color: white;
+    margin-bottom: 48px;
+}
+.currency-rates__subtitle {
+    display: block;
+}
+.currency-rates__button {
+    background: rgba(235, 234, 234, 0.15);
+    width: 163px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    font-weight: 300;
+    transition: .3s ease-in-out;
+}
+.currency-rates__button--active {
+    background-color: #FEDD2B;
+    color: black;
+}
+.currency-rates__buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 48px;
+}
+.currency-rates__buttons-row {
+    display: flex;
+    gap: 10px;
+}
+.currency-rates__image-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(235, 234, 234, 0.15);
+    padding: 24px;
+    max-width: 163px;
+    height: 130px;
+    border-radius: 10px;
+}
+.currency-rates__image-group{
+    display: flex;
+    gap: 10px;
+}
+.currency-rates__images{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.currency-rates__text{
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+.currency-rates__vip-text{
+    color: white;
+    margin-top: 48px;
+    font-weight: 500;
+}
+.currency-rates__link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 310px;
+    height: 70px;
+    background-color: #FEDD2B;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    gap: 8px;
+    color: black;
+    margin-top: 24px;
+}
 @media screen and (max-width: 920px) {
     .header__exchange {
         flex-direction: column;
@@ -335,6 +423,11 @@ body{
         padding-bottom: 45px;
         padding-top: 45px;
     }
+    .currency-rates {
+        border-radius: 40px;
+        padding: 40px;
+      }
+    
 }
 
 @media screen and (max-width: 810px) {
@@ -356,14 +449,52 @@ body{
         overflow: hidden;
     }
     .work-process__image{
-        margin-bottom: 48px;
+        margin-bottom: 24px;
     }
+    .currency-rates {
+        border-radius: 30px;
+        padding: 25px;
+      }
+      .currency-rates{
+        margin-top: 64px;
+      }
+      .currency-rates__buttons{
+        flex-direction: column;
+      }
+      .currency-rates__image-group{
+        flex-wrap: wrap;
+        max-width: 400px;
+        justify-content: center;
+      }
+      .currency-rates__images {
+        align-items: center;
+      }
+      .currency-rates__buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .currency-rates__title{
+        text-align: center;
+      }
 }
 
 @media screen and (max-width: 420px) {
     .header__description {
         max-width: 300px;
     }
+    .currency-rates__button{
+        width: 135px;
+    }
+    .currency-rates__image-item{
+        width: 135px;
+    }
+    .currency-rates__vip-text{
+        text-align: center;
+        font-size: 13px;
+    }
+    .currency-rates__title{
+        text-align: left;
+      }
     
 }
 

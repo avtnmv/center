@@ -142,6 +142,72 @@
                 Смотреть адреса офисов
             </a>
         </section>
+
+        <section class="currency-rates">
+            <h2 class="currency-rates__title">
+                Актуальные курсы валют 
+                <span class="currency-rates__subtitle">в наших офисах на сегодня</span>
+            </h2>
+        
+            <div class="currency-rates__buttons">
+                <div class="currency-rates__buttons-row">
+                    <button class="currency-rates__button" data-city="istanbul">Стамбул</button>
+                    <button class="currency-rates__button currency-rates__button--active" data-city="alanya">Аланья</button>
+                </div>
+                <div class="currency-rates__buttons-row">
+                    <button class="currency-rates__button" data-city="antalya">Анталья</button>
+                    <button class="currency-rates__button" data-city="mersin">Мерсин</button>
+                </div>
+            </div>
+        
+            <div class="currency-rates__images">
+                <div class="currency-rates__image-group">
+                    <div class="currency-rates__image-item">
+                        <img src="./assets/images/usdt-usd.png" alt="usdt-usd" class="currency-rates__image">
+                        <p class="currency-rates__text">-0.3%</p>
+                    </div>
+                    <div class="currency-rates__image-item">
+                        <img src="./assets/images/rub-try.png" alt="rub-try" class="currency-rates__image">
+                        <p class="currency-rates__text">2.97</p>
+                    </div>
+                    <div class="currency-rates__image-item">
+                        <img src="./assets/images/usd-usdt.png" alt="usd-usdt" class="currency-rates__image">
+                        <p class="currency-rates__text">-0.3%</p>
+                    </div>
+                    <div class="currency-rates__image-item">
+                        <img src="./assets/images/usdt-try.png" alt="usdt-try" class="currency-rates__image">
+                        <p class="currency-rates__text">36.44</p>
+                    </div>
+                </div>
+        
+                <div class="currency-rates__image-group">
+                    <div class="currency-rates__image-item">
+                        <img src="./assets/images/usdt-eur.png" alt="usdt-eur" class="currency-rates__image">
+                        <p class="currency-rates__text">1.0287</p>
+                    </div>
+                    <div class="currency-rates__image-item">
+                        <img src="./assets/images/rub-usd.png" alt="" class="currency-rates__image">
+                        <p class="currency-rates__text">105.38</p>
+                    </div>
+                    <div class="currency-rates__image-item">
+                        <img src="./assets/images/uah-try.png" alt="uah-try" class="currency-rates__image">
+                        <p class="currency-rates__text">0.87</p>
+                    </div>
+                    <div class="currency-rates__image-item">
+                        <img src="./assets/images/eur-usdt.png" alt="eur-usdt" class="currency-rates__image">
+                        <p class="currency-rates__text">1.0225</p>
+                    </div>
+                </div>
+            </div>
+        
+            <p class="currency-rates__vip-text">Смотрите VIP-курсы при сумме обмена от 20,000 USDT/USD/EUR в Вашем городе</p>
+            
+            <a href="https://t.me/+4aRxW1GKn1czOTYy" class="currency-rates__link">
+                <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="black"/></svg>
+    
+                Telegram-канал
+            </a>
+        </section>
     </main>
 
     <footer></footer>
@@ -333,6 +399,22 @@ function toggleCustomSelect() {
         toggleButton.classList.toggle("last-exchange__toggle--open");
     });
 });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const buttons = document.querySelectorAll(".currency-rates__button");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", function() {
+                // Убираем активный класс у всех кнопок
+                buttons.forEach(btn => btn.classList.remove("currency-rates__button--active"));
+                
+                // Добавляем активный класс к нажатой кнопке
+                this.classList.add("currency-rates__button--active");
+            });
+        });
+    });
 </script>
 </body>
 </html>

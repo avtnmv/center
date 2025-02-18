@@ -1,6 +1,7 @@
+// Инициализация Swiper
 let swiper = new Swiper('.mySwiper', {
-    slidesPerView: 6,  // Добавляем отображение двух слайдов
-    spaceBetween: 10,  // Задаем расстояние между слайдами
+    slidesPerView: 6,  // Количество слайдов
+    spaceBetween: 10,  // Расстояние между слайдами
     navigation: {
         nextEl: '.custom-next',
         prevEl: '.custom-prev',
@@ -9,38 +10,46 @@ let swiper = new Swiper('.mySwiper', {
         el: '.custom-swiper-pagination',
         type: 'progressbar',
     },
+    simulateTouch: true, // Разрешаем свайпы только для мобильных устройств
+    keyboard: false,     // Отключаем управление с клавиатуры
+    allowTouchMove: false, // Отключаем все свайпы на десктопе
+    slideToClickedSlide: false, // Отключаем переход к слайду по клику
     breakpoints: {
       320: {
           slidesPerView: 2, // 2 слайда на мобильных
-          spaceBetween: 10
+          spaceBetween: 10,
       },
-      420:{
+      420: {
           slidesPerView: 2, // 2 слайда на экранах до 576px
-          spaceBetween: 10
+          spaceBetween: 10,
       },
       576: {
-          slidesPerView: 3, // 2 слайда на экранах до 576px
-          spaceBetween: 15
+          slidesPerView: 3, // 3 слайда на экранах до 576px
+          spaceBetween: 15,
       },
       768: {
           slidesPerView: 3, // 3 слайда на экранах до 768px
-          spaceBetween: 15
+          spaceBetween: 15,
       },
       950: {
-          slidesPerView: 6, // 4 слайда на экранах до 950px
-          spaceBetween: 10
+          slidesPerView: 6, // 6 слайдов на экранах до 950px
+          spaceBetween: 10,
+          simulateTouch: false, // Отключаем свайпы на десктопе
+          keyboard: false, // Отключаем управление с клавиатуры
+          allowTouchMove: false, // Отключаем возможность свайпа на десктопе
       }
-  },
-  on: {
-      init: function() {
-          updateNavButtons(this);
-      },
-      slideChange: function() {
-          updateNavButtons(this);
-      }
-  }
+    },
+    on: {
+        init: function() {
+            updateNavButtons(this);
+        },
+        slideChange: function() {
+            updateNavButtons(this);
+        }
+    }
 });
 
+// Функция для обновления кнопок навигации
 function updateNavButtons(swiper) {
     const prevButton = document.querySelector('.custom-prev');
     const nextButton = document.querySelector('.custom-next');
@@ -58,30 +67,3 @@ function updateNavButtons(swiper) {
     }
 }
 
-// Блокировка слайдера при воспроизведении видео
-const videos = document.querySelectorAll('.swiper-slide video');
-
-videos.forEach(video => {
-  video.addEventListener('click', function(event) {
-    if (video.paused) {
-      video.play();
-    } else {
-      video.pause();
-    }
-    // Блокируем прокрутку слайдера
-    swiper.allowSlideNext = false;
-    swiper.allowSlidePrev = false;
-  });
-  
-  video.addEventListener('ended', function() {
-    // Возвращаем возможность прокручивать слайдер после завершения видео
-    swiper.allowSlideNext = true;
-    swiper.allowSlidePrev = true;
-  });
-  
-  video.addEventListener('pause', function() {
-    // Возвращаем возможность прокручивать слайдер после паузы видео
-    swiper.allowSlideNext = true;
-    swiper.allowSlidePrev = true;
-  });
-});

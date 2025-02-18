@@ -1073,6 +1073,9 @@ body{
       .footer{
         padding: 40px;
       }
+      .application__title{
+        padding-top: 20px;
+      }
       
 }
 

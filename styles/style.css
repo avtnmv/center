@@ -850,7 +850,6 @@ body{
     font-size: 11px;
     color: white;
     margin-top: 16px;
-    max-width: 290px;
 }
 .footer__container{
     max-width: 850px;
@@ -1080,6 +1079,9 @@ body{
       }
       .application__title{
         padding-top: 20px;
+      }
+      .footer__number{
+        max-width: 290px;
       }
       
 }

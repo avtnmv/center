@@ -631,6 +631,7 @@ body{
     width: 150px;
     height: 130px;
     border-radius: 25px;
+    object-fit: cover;
 }
 .swiper-pagination-progressbar.swiper-pagination-horizontal {
     width: 150px !important;

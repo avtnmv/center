@@ -325,13 +325,17 @@ body{
     color: black;
 }
 .currency-rates {
-    background-image: url(../assets/images/background.png);
+    background-image: url(../assets/images/bg.png);
     border-radius: 80px;
     background-position: center;
     display: block;
     padding: 80px;
     margin-top: 96px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 .currency-rates__title {
     max-width: 890px;
     font-size: clamp(36px, 5vw, 64px);
@@ -413,6 +417,218 @@ body{
     color: black;
     margin-top: 24px;
 }
+.offices{
+    max-width: 980px;
+    margin: auto;
+    margin-top: 96px;
+    position: relative;
+    
+}
+.offices__title{
+    font-size: 64px;
+    color: white;
+    font-size: clamp(36px, 5vw, 64px);
+    text-align: center;
+    margin-bottom: 24px;
+}
+.offices__locations{
+    font-size: clamp(20px, 2vw, 24px);
+    color: white;
+    text-align: center;
+    font-weight: 300;
+}
+.offices__description{
+    max-width: 980px;
+    text-align: center;
+    font-size: clamp(20px, 2vw, 24px);
+    background-color: #FEDD2B;
+    border-radius: 30px;
+    padding: 30px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+.offices__links{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    gap: 20px;
+
+}
+.offices__link--telegram{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 310px;
+    height: 70px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    gap: 8px;
+    color: white;
+}
+.offices__link--address{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 310px;
+    height: 70px;
+    background-color: white;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    gap: 8px;
+    color: black;
+    padding: 20px;
+}
+.offices__image{
+
+    width: 100%; /* Растягивается на всю ширину родителя */
+    max-width: 850px; /* Ограничение, чтобы не было слишком большим */
+    height: auto; /* Сохраняет пропорции */
+    margin: 0 auto; /* Центрирование */
+    position: relative;
+    z-index: -1;
+
+    margin-top: -120px;
+}
+.offices__image-wrapper{
+    text-align: center;
+}
+.reviews{
+    background-color: #747F92;
+    padding: 80px;
+    border-radius: 80px;
+    margin-top: -150px;
+}
+.reviews__title{
+    font-size: 64px;
+    color: white;
+    font-size: clamp(36px, 5vw, 64px);
+    margin-bottom: 16px;
+}
+.reviews__subtitle{
+    font-size: clamp(20px, 2vw, 24px);
+    color: white;
+    font-weight: 300px;
+}
+.reviews__description{
+    margin-top: 32px;
+    font-size: 16px;
+    color: white;
+    max-width: 960px;
+    margin-bottom: 32px;
+    font-weight: 300;
+}
+
+  
+  .swiper-slide-content {
+    width: 150px !important;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #524FD5;
+    border-radius: 25px;
+    object-fit: cover;
+  }
+  
+  .custom-prev.inactive,
+  .custom-next.inactive {
+    color: rgba(204, 204, 204, 0.75);
+  }
+
+
+  /*Slider*/
+.swiper {
+  max-width: 950px;
+  margin: auto;
+  border-radius: 25px;
+  z-index: 0;
+}
+
+.slider-wrapper {
+  max-width: 950px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px !important;
+}
+
+.swiper-buttons {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.custom-prev,
+.custom-next {
+    color: #fff;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    transition: color 0.3s ease;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
+/* Прогресс-бар */
+.swiper-pagination-progressbar.swiper-pagination-horizontal {
+  width: 150px !important;
+  height: 5px !important;
+}
+
+.custom-swiper-pagination {
+  height: 5px !important;
+  border-radius: 2px !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Полоса прогресс-бара */
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background-color: white !important;
+}
+
+.slider-buttons-container {
+  display: flex;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+.buttons-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+}
+.swiper-pagination-progressbar{
+  background-color: #747F92 !important;
+}
+
+
+
 @media screen and (max-width: 920px) {
     .header__exchange {
         flex-direction: column;
@@ -476,6 +692,12 @@ body{
       .currency-rates__title{
         text-align: center;
       }
+      .offices__links{
+        flex-direction: column;
+      }
+      .reviews{
+        padding: 40px;
+      }
 }
 
 @media screen and (max-width: 420px) {
@@ -511,6 +733,35 @@ body{
       }
       .currency-rates__vip-text{
         margin-top: 32px;
+      }
+      .currency-rates{
+        background-image: url(../assets/images/currency-rates-bg-mobile.png);
+        height: 1550px;
+      }
+      .buttons-container{
+        width: auto;
+      }
+      .reviews{
+        padding: 25px;
+        border-radius: 30px;
+        margin-top: -50px;
+      }
+      .offices{
+        margin-top: 64px;
+      }
+      .offices__title{
+        max-width: 320px;
+        margin: auto;
+        margin-bottom: 24px;
+
+      }
+      .offices__locations{
+        max-width: 320px;
+        margin: auto;
+      }
+      .reviews__description{
+        margin-top: 24px;
+        margin-bottom: 24px;
       }
     
 }

@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Обмен валюты в Турции. Выгодный обмен валют в офисах по городам Стамбул, Анталья, Алания, Мерсин. Обмен USDT и рублей на наличные доллары, евро или лиры.">
+    <title>ЦентрОбмена</title>
+
+    
+    
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,465 +22,440 @@
 />
 </head>
 <body>
-    <header class="header">
-        <div class="header__logo">
-            <a href="https://t.me/+4aRxW1GKn1czOTYy" class="header__logo-link">
-                <img src="./assets/images/logo.webp" alt="logo" class="header__logo-img">
-            </a>
-        </div>
-    
-        <h1 class="header__title">Выгодный обмен валют в Турции</h1>
-    
-        <div class="header__description">
-            <p> <span class="header__description-bold">Обменивайте USDT</span> и рубли на доллары, лиры или евро и наоборот.</p>
-            <p>Получайте кэш <span class="header__description-bold">в наших офисах за 3 минуты.</span></p>
-        </div>
-
-        <div class="header__exchange">
-            <div class="header__exchange-block">
-                <label for="city" class="header__exchange-label">Выберите город:</label>
-                <select id="city" class="header__exchange-select">
-                    <option value="Стамбул">Стамбул</option>
-                    <option value="Аланья">Аланья</option>
-                    <option value="Анталья">Анталья</option>
-                    <option value="Мерсин">Мерсин</option>
-                </select>
-
-                <svg class="header__exchange-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/></svg>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__logo">
+                <a href="https://t.me/+4aRxW1GKn1czOTYy" class="header__logo-link">
+                    <img src="./assets/images/logo.webp" alt="logo" class="header__logo-img">
+                </a>
             </div>
         
-            <div class="header__exchange-block">
-                <label class="header__exchange-label">Выберите валюту:</label>
-                <div class="custom-select" onclick="toggleCustomSelect()">
-                    <svg class="header__custom-select-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/></svg>
-                    <div class="custom-select__selected" onclick="toggleCustomSelect()">
-                        <img src="./assets/images/usdt-icon.svg" class="custom-select__icon" data-value="usdt" onclick="selectOption('usdt')" alt="usdt-icon">
-                        <span class="custom-select__text">Tether USDT</span>
-                    </div>
-                    <div class="custom-select__options" id="custom-select-options">
-                        <div class="custom-select__option" data-value="usdt" onclick="selectOption('usdt')">
-                            <img src="./assets/images/usdt-icon.svg" class="custom-select__icon" alt="usdt-icon">
+            <h1 class="header__title">Выгодный обмен валют в Турции</h1>
+        
+            <div class="header__description">
+                <p> <span class="header__description-bold">Обменивайте USDT</span> и рубли на доллары, лиры или евро и наоборот.</p>
+                <p>Получайте кэш <span class="header__description-bold">в наших офисах за 3 минуты.</span></p>
+            </div>
+    
+            <div class="header__exchange">
+                <div class="header__exchange-block">
+                    <label for="city" class="header__exchange-label">Выберите город:</label>
+                    <select id="city" class="header__exchange-select">
+                        <option value="Стамбул">Стамбул</option>
+                        <option value="Аланья">Аланья</option>
+                        <option value="Анталья">Анталья</option>
+                        <option value="Мерсин">Мерсин</option>
+                    </select>
+    
+                    <svg class="header__exchange-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/></svg>
+                </div>
+            
+                <div class="header__exchange-block">
+                    <label class="header__exchange-label">Выберите валюту:</label>
+                    <div class="custom-select" onclick="toggleCustomSelect()">
+                        <svg class="header__custom-select-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/></svg>
+                        <div class="custom-select__selected" onclick="toggleCustomSelect()">
+                            <img src="./assets/images/usdt-icon.svg" class="custom-select__icon" data-value="usdt" onclick="selectOption('usdt')" alt="usdt-icon">
                             <span class="custom-select__text">Tether USDT</span>
                         </div>
-                        <div class="custom-select__option" data-value="rub" onclick="selectOption('rub')">
-                            <img src="./assets/images/rub-icon.svg" class="custom-select__icon" alt="rub-icon">
-                            <span class="custom-select__text">RUB с карты</span>
-                        </div>
-                        <div class="custom-select__option" data-value="uah" onclick="selectOption('uah')">
-                            <img src="./assets/images/uah-icon.svg" class="custom-select__icon" alt="uah-icon">
-                            <span class="custom-select__text">UAH с карты</span>
-                        </div>
-                        <div class="custom-select__option" data-value="usd" onclick="selectOption('usd')">
-                            <img src="./assets/images/usd-icon.svg" class="custom-select__icon" alt="usd-icon">
-                            <span class="custom-select__text">USD наличные</span>
-                        </div>
-                        <div class="custom-select__option" data-value="eur" onclick="selectOption('eur')">
-                            <img src="./assets/images/eur-icon.svg" class="custom-select__icon" alt="eur-icon">
-                            <span class="custom-select__text">EUR наличные</span>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        
-            <div class="header__exchange-block">
-                <label for="amount" class="header__exchange-label">Отдаете:</label>
-                <input type="text" id="amount" class="header__exchange-input" placeholder="Введите сумму" oninput="updateReceivedAmount()">
-            </div>
-        
-            <div class="header__exchange-block">
-                <label for="receive" class="header__exchange-label">Получаете:</label>
-                <div class="header__exchange-line">
-                    <p id="received-amount" class="header__exchange-received-amount"></p>
-                    <select id="receive" class="header__exchange-select--yellow"></select>
-                    <svg class="header__exchange-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <g stroke-width="0" />
-                        <g stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd" />
-                    </svg>
-                </div>
-            </div>
-
-        </div>
-
-        <a href="https://t.me/+4aRxW1GKn1czOTYy" class="header__link">
-            <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="#fff"/></svg>
-
-            Обменять сейчас
-        </a>
-
-    </header>
-
-    <main class="main">
-        <section class="last-exchange">
-            <div class="last-exchange__container">
-                <h3 class="last-exchange__title">Последние обмены:</h3>
-                <div class="last-exchange__list">
-                    <div class="last-exchange__item"> 
-                        <p class="last-exchange__date">03.01.2025, 14:50</p>
-                        <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
-                    </div>
-                    <div class="last-exchange__item"> 
-                        <p class="last-exchange__date">03.01.2025, 14:50</p>
-                        <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
-                    </div>
-                    <div class="last-exchange__item last-exchange__item--hidden"> 
-                        <p class="last-exchange__date">03.01.2025, 14:50</p>
-                        <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
-                    </div>
-                    <div class="last-exchange__item last-exchange__item--hidden"> 
-                        <p class="last-exchange__date">03.01.2025, 14:50</p>
-                        <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
-                    </div>
-                    <button class="last-exchange__toggle">
-                        <svg class="last-exchange__toggle-icon" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/></svg>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <section class="work-process">
-            <h2 class="work-process__title">Как мы работаем?</h2>
-            <p class="work-process__description">Презентация за 1 минуту</p>
-
-            <img src="./assets/images/presentation.jpg" alt="presentation-image" class="work-process__image">
-        
-            <a href="https://t.me/+4aRxW1GKn1czOTYy" class="work-process__link">
-                <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" class="work-process__icon">
-                    <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="black"/>
-                </svg>
-                Смотреть адреса офисов
-            </a>
-        </section>
-
-        <section class="currency-rates">
-            <h2 class="currency-rates__title">
-                Актуальные курсы валют 
-                <span class="currency-rates__subtitle">в наших офисах на сегодня</span>
-            </h2>
-        
-            <div class="currency-rates__buttons">
-                <div class="currency-rates__buttons-row">
-                    <button class="currency-rates__button" data-city="istanbul">Стамбул</button>
-                    <button class="currency-rates__button currency-rates__button--active" data-city="alanya">Аланья</button>
-                </div>
-                <div class="currency-rates__buttons-row">
-                    <button class="currency-rates__button" data-city="antalya">Анталья</button>
-                    <button class="currency-rates__button" data-city="mersin">Мерсин</button>
-                </div>
-            </div>
-        
-            <div class="currency-rates__images">
-                <div class="currency-rates__image-group">
-                    <div class="currency-rates__image-item">
-                        <img src="./assets/images/usdt-usd.png" alt="usdt-usd" class="currency-rates__image">
-                        <p class="currency-rates__text">-0.3%</p>
-                    </div>
-                    <div class="currency-rates__image-item">
-                        <img src="./assets/images/rub-try.png" alt="rub-try" class="currency-rates__image">
-                        <p class="currency-rates__text">2.97</p>
-                    </div>
-                    <div class="currency-rates__image-item">
-                        <img src="./assets/images/usd-usdt.png" alt="usd-usdt" class="currency-rates__image">
-                        <p class="currency-rates__text">-0.3%</p>
-                    </div>
-                    <div class="currency-rates__image-item">
-                        <img src="./assets/images/usdt-try.png" alt="usdt-try" class="currency-rates__image">
-                        <p class="currency-rates__text">36.44</p>
-                    </div>
-                </div>
-        
-                <div class="currency-rates__image-group">
-                    <div class="currency-rates__image-item">
-                        <img src="./assets/images/usdt-eur.png" alt="usdt-eur" class="currency-rates__image">
-                        <p class="currency-rates__text">1.0287</p>
-                    </div>
-                    <div class="currency-rates__image-item">
-                        <img src="./assets/images/rub-usd.png" alt="" class="currency-rates__image">
-                        <p class="currency-rates__text">105.38</p>
-                    </div>
-                    <div class="currency-rates__image-item">
-                        <img src="./assets/images/uah-try.png" alt="uah-try" class="currency-rates__image">
-                        <p class="currency-rates__text">0.87</p>
-                    </div>
-                    <div class="currency-rates__image-item">
-                        <img src="./assets/images/eur-usdt.png" alt="eur-usdt" class="currency-rates__image">
-                        <p class="currency-rates__text">1.0225</p>
-                    </div>
-                </div>
-            </div>
-        
-            <p class="currency-rates__vip-text">Смотрите VIP-курсы при сумме обмена от 20,000 USDT/USD/EUR в Вашем городе</p>
-            
-            <a href="https://t.me/+4aRxW1GKn1czOTYy" class="currency-rates__link">
-                <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="black"/></svg>
+                        <div class="custom-select__options" id="custom-select-options">
+                            <div class="custom-select__option" data-value="usdt" onclick="selectOption('usdt')">
+                                <img src="./assets/images/usdt-icon.svg" class="custom-select__icon" alt="usdt-icon">
+                                <span class="custom-select__text">Tether USDT</span>
+                            </div>
+                            <div class="custom-select__option" data-value="rub" onclick="selectOption('rub')">
+                                <img src="./assets/images/rub-icon.svg" class="custom-select__icon" alt="rub-icon">
+                                <span class="custom-select__text">RUB с карты</span>
+                            </div>
+                            <div class="custom-select__option" data-value="uah" onclick="selectOption('uah')">
+                                <img src="./assets/images/uah-icon.svg" class="custom-select__icon" alt="uah-icon">
+                                <span class="custom-select__text">UAH с карты</span>
+                            </div>
+                            <div class="custom-select__option" data-value="usd" onclick="selectOption('usd')">
+                                <img src="./assets/images/usd-icon.svg" class="custom-select__icon" alt="usd-icon">
+                                <span class="custom-select__text">USD наличные</span>
+                            </div>
+                            <div class="custom-select__option" data-value="eur" onclick="selectOption('eur')">
+                                <img src="./assets/images/eur-icon.svg" class="custom-select__icon" alt="eur-icon">
+                                <span class="custom-select__text">EUR наличные</span>
+                            </div>
     
-                Telegram-канал
-            </a>
-        </section>
-
-        <section class="offices">
-            <h2 class="offices__title">Сеть офисов в Турции:</h2>
-            <p class="offices__locations">Стамбул, Анталья, Аланья, Мармарис, Мерсин</p>
-        
-            <div class="offices__description">
-                Работаем в ключевых городах Турции, предлагая удобный доступ к услугам.
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="header__exchange-block">
+                    <label for="amount" class="header__exchange-label">Отдаете:</label>
+                    <input type="text" id="amount" class="header__exchange-input" placeholder="Введите сумму" oninput="updateReceivedAmount()">
+                </div>
+            
+                <div class="header__exchange-block">
+                    <label for="receive" class="header__exchange-label">Получаете:</label>
+                    <div class="header__exchange-line">
+                        <p id="received-amount" class="header__exchange-received-amount"></p>
+                        <select id="receive" class="header__exchange-select--yellow"></select>
+                        <svg class="header__exchange-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <g stroke-width="0" />
+                            <g stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd" />
+                        </svg>
+                    </div>
+                </div>
+    
             </div>
+    
+            <a href="https://t.me/+4aRxW1GKn1czOTYy" class="header__link">
+                <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="#fff"/></svg>
+    
+                Обменять сейчас
+            </a>
+    
+        </header>
+    
+        <main class="main">
+            <section class="last-exchange">
+                <div class="last-exchange__container">
+                    <h3 class="last-exchange__title">Последние обмены:</h3>
+                    <div class="last-exchange__list">
+                        <div class="last-exchange__item"> 
+                            <p class="last-exchange__date">03.01.2025, 14:50</p>
+                            <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                        </div>
+                        <div class="last-exchange__item"> 
+                            <p class="last-exchange__date">03.01.2025, 14:50</p>
+                            <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                        </div>
+                        <div class="last-exchange__item last-exchange__item--hidden"> 
+                            <p class="last-exchange__date">03.01.2025, 14:50</p>
+                            <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                        </div>
+                        <div class="last-exchange__item last-exchange__item--hidden"> 
+                            <p class="last-exchange__date">03.01.2025, 14:50</p>
+                            <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                        </div>
+                        <button class="last-exchange__toggle">
+                            <svg class="last-exchange__toggle-icon" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="work-process">
+                <h2 class="work-process__title">Как мы работаем?</h2>
+                <p class="work-process__description">Презентация за 1 минуту</p>
+    
+                <img src="./assets/images/presentation.jpg" alt="presentation-image" class="work-process__image">
+            
+                <a href="https://t.me/+4aRxW1GKn1czOTYy" class="work-process__link">
+                    <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg" class="work-process__icon">
+                        <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="black"/>
+                    </svg>
+                    Смотреть адреса офисов
+                </a>
+            </section>
+    
+            <section class="currency-rates">
+                <h2 class="currency-rates__title">
+                    Актуальные курсы валют 
+                    <span class="currency-rates__subtitle">в наших офисах на сегодня</span>
+                </h2>
+            
+                <div class="currency-rates__buttons">
+                    <div class="currency-rates__buttons-row">
+                        <button class="currency-rates__button" data-city="istanbul">Стамбул</button>
+                        <button class="currency-rates__button currency-rates__button--active" data-city="alanya">Аланья</button>
+                    </div>
+                    <div class="currency-rates__buttons-row">
+                        <button class="currency-rates__button" data-city="antalya">Анталья</button>
+                        <button class="currency-rates__button" data-city="mersin">Мерсин</button>
+                    </div>
+                </div>
+            
+                <div class="currency-rates__images">
+                    <div class="currency-rates__image-group">
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/usdt-usd.png" alt="usdt-usd" class="currency-rates__image">
+                            <p class="currency-rates__text">-0.3%</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/rub-try.png" alt="rub-try" class="currency-rates__image">
+                            <p class="currency-rates__text">2.97</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/usd-usdt.png" alt="usd-usdt" class="currency-rates__image">
+                            <p class="currency-rates__text">-0.3%</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/usdt-try.png" alt="usdt-try" class="currency-rates__image">
+                            <p class="currency-rates__text">36.44</p>
+                        </div>
+                    </div>
+            
+                    <div class="currency-rates__image-group">
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/usdt-eur.png" alt="usdt-eur" class="currency-rates__image">
+                            <p class="currency-rates__text">1.0287</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/rub-usd.png" alt="" class="currency-rates__image">
+                            <p class="currency-rates__text">105.38</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/uah-try.png" alt="uah-try" class="currency-rates__image">
+                            <p class="currency-rates__text">0.87</p>
+                        </div>
+                        <div class="currency-rates__image-item">
+                            <img src="./assets/images/eur-usdt.png" alt="eur-usdt" class="currency-rates__image">
+                            <p class="currency-rates__text">1.0225</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <p class="currency-rates__vip-text">Смотрите VIP-курсы при сумме обмена от 20,000 USDT/USD/EUR в Вашем городе</p>
+                
+                <a href="https://t.me/+4aRxW1GKn1czOTYy" class="currency-rates__link">
+                    <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="black"/></svg>
         
-            <div class="offices__links">
-                <a href="https://t.me/+4aRxW1GKn1czOTYy" class="offices__link offices__link--telegram">
+                    Telegram-канал
+                </a>
+            </section>
+    
+            <section class="offices">
+                <h2 class="offices__title">Сеть офисов в Турции:</h2>
+                <p class="offices__locations">Стамбул, Анталья, Аланья, Мармарис, Мерсин</p>
+            
+                <div class="offices__description">
+                    Работаем в ключевых городах Турции, предлагая удобный доступ к услугам.
+                </div>
+            
+                <div class="offices__links">
+                    <a href="https://t.me/+4aRxW1GKn1czOTYy" class="offices__link offices__link--telegram">
+                        <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="white"/>
+                        </svg>
+                        Telegram-канал с курсами
+                    </a>
+            
+                    <a href="#" class="offices__link offices__link--address">Адреса офисов</a>
+                </div>
+            
+                <div class="offices__image-wrapper">
+                    <img src="./assets/images/offices-image.png" alt="office-image" class="offices__image">
+                </div>
+            </section>
+    
+            <section class="reviews">
+                <h2 class="reviews__title">Что о нас говорят клиенты?</h2>
+                <p class="reviews__subtitle">Только реальные отзывы</p>
+            
+                <p class="reviews__description">
+                    Читайте, изучайте, сравнивайте — их опыт поможет Вам убедиться, что наш сервис действительно работает быстро, честно и выгодно. 
+                    Отзывы — лучший показатель качества нашей работы!
+                </p>
+            
+                <div class="reviews__videos">
+                    <div class="slider-wrapper">
+                        <!-- Swiper для видео -->
+                        <div class="swiper mySwiperVideos">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-one.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+                                
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-two.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-three.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-four.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-five.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-six.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-seven.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-eight.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-nine.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-ten.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-eleven.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <video id="video" controls class="swiper-slide-content">
+                                        <source src="./assets/videos/video-review-twelve.mp4" type="video/mp4">
+                                        Ваш браузер не поддерживает видео.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="buttons-container">
+                            <div class="custom-swiper-pagination-video custom-swiper-pagination"></div>
+                            <div class="swiper-buttons">
+                                <div class="custom-prev-video">←</div>
+                                <div class="custom-next-video">→</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <p class="reviews__telegram-title">Отзывы из нашего канала в Telegram</p>
+            
+                <div class="reviews__images">
+                    <div class="slider-wrapper">
+                        <!-- Swiper для изображений -->
+                        <div class="swiper mySwiperImages">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/36.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+                                
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/35.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/34.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/33.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/32.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/31.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/30.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/29.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/28.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/27.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/25.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/24.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/23.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/22.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/21.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                                <div class="swiper-slide">
+                                    <a data-fancybox="gallery" href="./assets/tg-reviews/20.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
+                                </div>
+    
+                            </div>
+                        </div>
+            
+                        <div class="buttons-container">
+                            <div class="custom-swiper-pagination-image custom-swiper-pagination"></div>
+                            <div class="swiper-buttons">
+                                <div class="custom-prev-image">←</div>
+                                <div class="custom-next-image">→</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <a href="https://t.me/+4aRxW1GKn1czOTYy" class="offices__link offices__link--telegram reviews__link">
                     <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="white"/>
                     </svg>
-                    Telegram-канал с курсами
+                    Смотреть все отзывы
                 </a>
-        
-                <a href="#" class="offices__link offices__link--address">Адреса офисов</a>
-            </div>
-        
-            <div class="offices__image-wrapper">
-                <img src="./assets/images/offices-image.png" alt="office-image" class="offices__image">
-            </div>
-        </section>
-
-        <section class="reviews">
-            <h2 class="reviews__title">Что о нас говорят клиенты?</h2>
-            <p class="reviews__subtitle">Только реальные отзывы</p>
-        
-            <p class="reviews__description">
-                Читайте, изучайте, сравнивайте — их опыт поможет Вам убедиться, что наш сервис действительно работает быстро, честно и выгодно. 
-                Отзывы — лучший показатель качества нашей работы!
-            </p>
-        
-            <div class="reviews__videos">
-                <div class="slider-wrapper">
-                    <!-- Swiper для видео -->
-                    <div class="swiper mySwiperVideos">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-one.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-                            
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-two.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-three.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-four.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-five.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-six.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-seven.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-eight.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-nine.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-ten.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-eleven.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <video id="video" controls class="swiper-slide-content">
-                                    <source src="./assets/videos/video-review-twelve.mp4" type="video/mp4">
-                                    Ваш браузер не поддерживает видео.
-                                </video>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div class="buttons-container">
-                        <div class="custom-swiper-pagination-video custom-swiper-pagination"></div>
-                        <div class="swiper-buttons">
-                            <div class="custom-prev-video">←</div>
-                            <div class="custom-next-video">→</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <p class="reviews__telegram-title">Отзывы из нашего канала в Telegram</p>
-        
-            <div class="reviews__images">
-                <div class="slider-wrapper">
-                    <!-- Swiper для изображений -->
-                    <div class="swiper mySwiperImages">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/36.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-                            
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/35.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/34.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/33.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/32.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/31.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/30.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/29.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/28.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/27.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/25.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/24.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/23.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/22.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/21.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a data-fancybox="gallery" href="./assets/tg-reviews/20.jpg"><img src="./assets/tg-reviews/36.jpg" alt=""></a>
-                            </div>
-
-                        </div>
-                    </div>
-        
-                    <div class="buttons-container">
-                        <div class="custom-swiper-pagination-image custom-swiper-pagination"></div>
-                        <div class="swiper-buttons">
-                            <div class="custom-prev-image">←</div>
-                            <div class="custom-next-image">→</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <a href="https://t.me/+4aRxW1GKn1czOTYy" class="offices__link offices__link--telegram reviews__link">
-                <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="white"/>
-                </svg>
-                Смотреть все отзывы
-            </a>
-        </section>
-
-        <section class="faq">
-            <h2 class="faq__title">FAQ</h2>
-            <p class="faq__subtitle">Самые часто задаваемые вопросы</p>
-
-
-            <div class="accordion-container">
-                <div class="accordion">
-                    <div class="accordion-question">Вопрос 1</div>
-                    <div class="accordion-header">
-                        <span>Услуги обменника</span>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content_block">
-                            <p class="accordion-content_block-text">Переведите рубли/USDT <br>на реквизиты, <br> указанные оператором.</p>
-                        </div>
-                        <div class="accordion-content_block">
-                            <p class="accordion-content_block-text">Сообщите свой <br> IBAN и ФИО.</p>
-                        </div>
-                        <div class="accordion-content_block">
-                            <p class="accordion-content_block-text">Получите лиры <br> на свой счет.</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion__link-block">
-                        <h3 class="accordion__link-block-title">Min сумма обмена - 10,000 лир.</h3>
-                        <p class="accordion__link-block-paragraph">Для обмена или консультации свяжитесь с оператором в <a href="" class="accordion__link">Telegram</a> или <a href="" class="accordion__link">WhatsApp.</a></p>
-                    </div>
-
-                </div>
-        </div>
-        
+            </section>
+    
+            <section class="faq">
+                <h2 class="faq__title">FAQ</h2>
+                <p class="faq__subtitle">Самые часто задаваемые вопросы</p>
+    
+    
                 <div class="accordion-container">
                     <div class="accordion">
-                        <div class="accordion-question">Вопрос 2</div>
+                        <div class="accordion-question">Вопрос 1</div>
                         <div class="accordion-header">
-                            <span>Пополнение IBAN</span>
+                            <span>Услуги обменника</span>
                         </div>
                         <div class="accordion-content">
                             <div class="accordion-content_block">
@@ -489,233 +468,80 @@
                                 <p class="accordion-content_block-text">Получите лиры <br> на свой счет.</p>
                             </div>
                         </div>
-
+    
                         <div class="accordion__link-block">
                             <h3 class="accordion__link-block-title">Min сумма обмена - 10,000 лир.</h3>
                             <p class="accordion__link-block-paragraph">Для обмена или консультации свяжитесь с оператором в <a href="" class="accordion__link">Telegram</a> или <a href="" class="accordion__link">WhatsApp.</a></p>
                         </div>
-
+    
                     </div>
             </div>
-        </section>
-        
-        <section class="application">
-
-            <div class="application__container">
-                <h2 class="application__title">Мы ждем ваши заявки</h2>
             
-                <div class="application__links">
-                    <a href="https://t.me/+4aRxW1GKn1czOTYy" class="application__link application__link--telegram">
-                        <svg class="application__icon" width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="white"/>
-                        </svg>
-                        Telegram
-                    </a>
-            
-                    <a href="#" class="application__link application__link--whatsapp">
-                        <svg class="application__icon" width="31" height="31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M25.7803 5.1771C23.0613 2.455 19.4454.9552 15.5931.9536c-7.9379 0-14.3982 6.4601-14.4014 14.4002-.001 2.5382.662 5.0158 1.9223 7.1998l-2.043 7.4625 7.6343-2.0026c2.1036 1.1474 4.4719 1.7521 6.882 1.7529h.006c7.937 0 14.398-6.4607 14.4011-14.4011.0016-3.8481-1.495-7.4662-4.2141-10.1882ZM15.5931 27.3343h-.0049c-2.1478-.0009-4.2542-.5781-6.0923-1.6685l-.4369-.2595-4.5303 1.1884 1.2092-4.417-.2847-.4528c-1.1982-1.9059-1.831-4.1086-1.83-6.3702C3.6259 8.7551 8.9956 3.3859 15.598 3.3859c3.1972.001 6.2026 1.2477 8.4624 3.5102 2.2599 2.2626 3.5037 5.2699 3.5027 8.4683-.0029 6.6001-5.3723 11.9699-11.9699 11.9699Zm6.5657-8.9648c-.3597-.1802-2.129-1.0505-2.4589-1.1708-.3296-.12-.5697-.1798-.8094.1803-.24.3601-.9295 1.1707-1.1395 1.4107-.21.2402-.4197.2703-.7796.0901-.3599-.18-1.5193-.5602-2.8938-1.7861-1.0697-.9541-1.7918-2.1325-2.0018-2.4926-.2097-.3604-.0018-.5364.1579-.7343.3895-.4838.7796-.9909.8995-1.2309.1201-.2402.0599-.4504-.0302-.6304-.0897-.1801-.8094-1.9512-1.1092-2.672-.2923-.7013-.5887-.6066-.8097-.6176-.2097-.0104-.4497-.0126-.6897-.0126-.2398 0-.6297.09-.9596.4504-.3298.3603-1.2593 1.2307-1.2593 3.0019 0 1.7711 1.2894 3.4822 1.4693 3.7223.1799.2402 2.5375 3.8748 6.147 5.4333.8586.3711 1.5287.5923 2.0515.7581.8621.2739 1.6463.2352 2.2664.1427.6914-.1035 2.1288-.8706 2.4289-1.7111.2998-.8406.2998-1.561.2097-1.7112-.0898-.1501-.3298-.24-.6895-.4202Z" fill="#000"/>
-                        </svg>
-                        Whatsapp
-                    </a>
+                    <div class="accordion-container">
+                        <div class="accordion">
+                            <div class="accordion-question">Вопрос 2</div>
+                            <div class="accordion-header">
+                                <span>Пополнение IBAN</span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content_block">
+                                    <p class="accordion-content_block-text">Переведите рубли/USDT <br>на реквизиты, <br> указанные оператором.</p>
+                                </div>
+                                <div class="accordion-content_block">
+                                    <p class="accordion-content_block-text">Сообщите свой <br> IBAN и ФИО.</p>
+                                </div>
+                                <div class="accordion-content_block">
+                                    <p class="accordion-content_block-text">Получите лиры <br> на свой счет.</p>
+                                </div>
+                            </div>
+    
+                            <div class="accordion__link-block">
+                                <h3 class="accordion__link-block-title">Min сумма обмена - 10,000 лир.</h3>
+                                <p class="accordion__link-block-paragraph">Для обмена или консультации свяжитесь с оператором в <a href="" class="accordion__link">Telegram</a> или <a href="" class="accordion__link">WhatsApp.</a></p>
+                            </div>
+    
+                        </div>
                 </div>
+            </section>
             
-                <p class="application__text">Напишите нам прямо сейчас, и мы предложим вам лучший курс обмена в Вашем городе!</p>
-            </div>
-        </section>
+            <section class="application">
+    
+                <div class="application__container">
+                    <h2 class="application__title">Мы ждем ваши заявки</h2>
+                
+                    <div class="application__links">
+                        <a href="https://t.me/+4aRxW1GKn1czOTYy" class="application__link application__link--telegram">
+                            <svg class="application__icon" width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.36 2.855C19.227 4.152 5.793 9.717 2.081 11.233c-2.49.972-1.032 1.883-1.032 1.883s2.125.728 3.946 1.275c1.822.546 2.793-.061 2.793-.061l8.561-5.768c3.036-2.064 2.308-.364 1.579.364-1.579 1.579-4.19 4.068-6.375 6.072-.972.85-.486 1.579-.061 1.943 1.579 1.335 5.89 4.068 6.133 4.25 1.282.908 3.805 2.215 4.189-.546l1.518-9.533c.486-3.218.971-6.193 1.032-7.043.182-2.064-2.004-1.214-2.004-1.214Z" fill="white"/>
+                            </svg>
+                            Telegram
+                        </a>
+                
+                        <a href="https://wa.me/79916748251" class="application__link application__link--whatsapp">
+                            <svg class="application__icon" width="31" height="31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M25.7803 5.1771C23.0613 2.455 19.4454.9552 15.5931.9536c-7.9379 0-14.3982 6.4601-14.4014 14.4002-.001 2.5382.662 5.0158 1.9223 7.1998l-2.043 7.4625 7.6343-2.0026c2.1036 1.1474 4.4719 1.7521 6.882 1.7529h.006c7.937 0 14.398-6.4607 14.4011-14.4011.0016-3.8481-1.495-7.4662-4.2141-10.1882ZM15.5931 27.3343h-.0049c-2.1478-.0009-4.2542-.5781-6.0923-1.6685l-.4369-.2595-4.5303 1.1884 1.2092-4.417-.2847-.4528c-1.1982-1.9059-1.831-4.1086-1.83-6.3702C3.6259 8.7551 8.9956 3.3859 15.598 3.3859c3.1972.001 6.2026 1.2477 8.4624 3.5102 2.2599 2.2626 3.5037 5.2699 3.5027 8.4683-.0029 6.6001-5.3723 11.9699-11.9699 11.9699Zm6.5657-8.9648c-.3597-.1802-2.129-1.0505-2.4589-1.1708-.3296-.12-.5697-.1798-.8094.1803-.24.3601-.9295 1.1707-1.1395 1.4107-.21.2402-.4197.2703-.7796.0901-.3599-.18-1.5193-.5602-2.8938-1.7861-1.0697-.9541-1.7918-2.1325-2.0018-2.4926-.2097-.3604-.0018-.5364.1579-.7343.3895-.4838.7796-.9909.8995-1.2309.1201-.2402.0599-.4504-.0302-.6304-.0897-.1801-.8094-1.9512-1.1092-2.672-.2923-.7013-.5887-.6066-.8097-.6176-.2097-.0104-.4497-.0126-.6897-.0126-.2398 0-.6297.09-.9596.4504-.3298.3603-1.2593 1.2307-1.2593 3.0019 0 1.7711 1.2894 3.4822 1.4693 3.7223.1799.2402 2.5375 3.8748 6.147 5.4333.8586.3711 1.5287.5923 2.0515.7581.8621.2739 1.6463.2352 2.2664.1427.6914-.1035 2.1288-.8706 2.4289-1.7111.2998-.8406.2998-1.561.2097-1.7112-.0898-.1501-.3298-.24-.6895-.4202Z" fill="#000"/>
+                            </svg>
+                            Whatsapp
+                        </a>
+                    </div>
+                
+                    <p class="application__text">Напишите нам прямо сейчас, и мы предложим вам лучший курс обмена в Вашем городе!</p>
+                </div>
+            </section>
+    
+        </main>
+    </div>
 
-    </main>
+    <footer class="footer">
 
-    <footer></footer>
+        <div class="footer__container">
+            <p class="footer__copyright">Copyright © 2025 «CentrObmena Corp.» Müeyyetzade, Necatibey Cd. No.51/A, 34425 Beyoğlu/İstanbul <a href="tel:+7 991 674 8251" class="footer__tel">+7 991 674 8251</a></p>
 
-    <script>
+            <p class="footer__number">Авторизован управлением по финансовому регулированию и контролю Турции для ведения операций с наличными и цифровыми активами.
+                Номер регистрации <span class="footer__span--yellow" style="color: #FEDD2B;">No. 0790002708494492.</span></p>
+        </div>
 
-    function updateReceiveOptions(selectedCurrency) {
-    const receiveSelect = document.getElementById("receive");
-
-    const receiveOptions = {
-        usdt: ["usd", "try"],
-        rub: ["try", "usd"],
-        uah: ["try"],
-        usd: ["usdt", "try"],
-        eur: ["usdt"]
-    };
-
-    const currencyNames = {
-        usdt: "Tether USDT",
-        rub: "RUB с карты",
-        uah: "UAH с карты",
-        usd: "USD наличные",
-        eur: "EUR наличные",
-        try: "TRY наличные"
-    };
-
-    const currencyFlags = {
-        usdt: "./assets/images/usdt-icon.svg",
-        rub: "./assets/images/rub-icon.svg",
-        uah: "./assets/images/uah-icon.svg",
-        usd: "./assets/images/usd-icon.svg",
-        eur: "./assets/images/eur-icon.svg",
-        try: "./assets/images/try-icon.svg"
-    };
-
-    receiveSelect.innerHTML = ""; 
-
-    if (receiveOptions[selectedCurrency]) {
-        receiveOptions[selectedCurrency].forEach(val => {
-            let option = document.createElement("option");
-            option.value = val;
-            option.textContent = currencyNames[val]; 
-            option.dataset.flag = currencyFlags[val]; 
-            receiveSelect.appendChild(option);
-        });
-    }
-
-    if (receiveSelect.options.length > 0) {
-        receiveSelect.value = receiveSelect.options[0].value;
-        updateFlag(receiveSelect); 
-    }
-
-    updateReceivedAmount(); 
-}
-
-function updateFlag(select) {
-    const selectedOption = select.options[select.selectedIndex];
-    const flagPath = selectedOption.dataset.flag;
-    select.style.backgroundImage = `url(${flagPath})`;
-    select.style.backgroundRepeat = "no-repeat";
-    select.style.backgroundPosition = "left center";
-    select.style.backgroundSize = "20px";
-}
-
-async function updateReceivedAmount() {
-    const amount = parseFloat(document.getElementById("amount").value);
-    const selected = document.querySelector(".custom-select__selected");
-    const currency = selected ? selected.dataset.value : null; // Берем валюту из кастомного селекта
-    const receiveSelect = document.getElementById("receive");
-
-    if (!amount || amount <= 0 || !currency || receiveSelect.options.length === 0) {
-        document.getElementById("received-amount").textContent = "";
-        return;
-    }
-
-    const receiveCurrency = receiveSelect.value;
-
-    try {
-        const exchangeRates = await fetchExchangeRates(currency, receiveCurrency);
-        if (exchangeRates && exchangeRates.rate) {
-            const receivedAmount = (amount * exchangeRates.rate).toFixed(2);
-            document.getElementById("received-amount").textContent = `${receivedAmount}`;
-        } else {
-            document.getElementById("received-amount").textContent = "Ошибка получения курса";
-        }
-    } catch (error) {
-        console.error("Ошибка при получении курса:", error);
-        document.getElementById("received-amount").textContent = "Ошибка получения курса";
-    }
-}
-
-// Функция API (заглушка)
-async function fetchExchangeRates(fromCurrency, toCurrency) {
-    // Заглушка
-    return { rate: 1.0 };
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const selected = document.querySelector(".custom-select__selected");
-    if (selected && !selected.dataset.value) {
-        selected.dataset.value = "usdt";
-    }
-
-    updateReceiveOptions('usdt');
-
-    updateReceivedAmount();
-});
-
-const receiveSelect = document.getElementById("receive");
-receiveSelect.addEventListener("change", function () {
-    updateFlag(receiveSelect); 
-    updateReceivedAmount(); 
-});
-
-function selectOption(value) {
-    const selected = document.querySelector(".custom-select__selected");
-    const options = document.querySelectorAll(".custom-select__option");
-    const selectedOption = Array.from(options).find(option => option.dataset.value === value);
-
-    if (selectedOption) {
-        selected.innerHTML = selectedOption.innerHTML;
-        selected.dataset.value = value;  
-        updateReceiveOptions(value);  
-    }
-
-    toggleCustomSelect();
-}
-
-function toggleCustomSelect() {
-    const options = document.getElementById("custom-select-options");
-    options.classList.toggle("show");
-}
-
-window.onclick = function(event) {
-    const customSelect = document.querySelector(".custom-select");
-    const options = document.getElementById("custom-select-options");
-
-    if (!customSelect.contains(event.target) && options.classList.contains('show')) {
-        options.classList.remove('show');
-    }
-}
-
-document.querySelectorAll('.custom-select').forEach(select => {
-    select.addEventListener("click", function() {
-        toggleCustomSelect();
-    });
-});
-
-function toggleCustomSelect() {
-    const options = document.getElementById("custom-select-options");
-    const link = document.querySelector(".header__link");
-
-    if (!options || !link) {
-        console.error("Элементы не найдены: options или link");
-        return;
-    }
-
-    options.classList.toggle("show");
-
-    const windowWidth = window.innerWidth;
-
-    if (options.classList.contains("show")) {
-        if (windowWidth > 920) {
-            link.style.marginTop = "180px";  
-        } else {
-            link.style.marginTop = "64px";  
-        }
-    } else {
-        link.style.marginTop = "64px"; 
-    }
-}
-    </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const toggleButton = document.querySelector(".last-exchange__toggle");
-    const hiddenItems = document.querySelectorAll(".last-exchange__item--hidden");
-    let isOpen = false;
-
-    toggleButton.addEventListener("click", function() {
-        isOpen = !isOpen;
-        hiddenItems.forEach(item => {
-            if (isOpen) {
-                item.classList.add("last-exchange__item--visible");
-            } else {
-                item.classList.remove("last-exchange__item--visible");
-            }
-        });
-        toggleButton.classList.toggle("last-exchange__toggle--open");
-    });
-});
-</script>
+    </footer>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -723,10 +549,8 @@ function toggleCustomSelect() {
 
         buttons.forEach(button => {
             button.addEventListener("click", function() {
-                // Убираем активный класс у всех кнопок
                 buttons.forEach(btn => btn.classList.remove("currency-rates__button--active"));
                 
-                // Добавляем активный класс к нажатой кнопке
                 this.classList.add("currency-rates__button--active");
             });
         });
@@ -736,12 +560,15 @@ function toggleCustomSelect() {
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script src="./scripts/slider.js"></script>
+<script src="./scripts/currency.js"></script>
+<script src="./scripts/last-exchange-accordion.js"></script>
+<script src="./scripts/accordion.js"></script>
 
 <script>
     Fancybox.bind("[data-fancybox]", {
 });
 </script>
 
-<script src="./scripts/accordion.js"></script>
+
 </body>
 </html>

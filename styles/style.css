@@ -6,7 +6,6 @@
 body{
     background-color: #3E4756;
     font-family: 'Inter', sans-serif;
-    padding: 0 15px;
 }
 .header > *{
     margin: auto;
@@ -830,7 +829,32 @@ body{
     gap: 20px;
     margin-bottom: 24px;
 }
+.footer{
+    background-color: #313844;
+    padding: 80px;
+}
+.footer__tel{
+    text-decoration: none;
+    color: #FEDD2B;
+}
+.footer__copyright{
+    font-size: 14px;
+    color: white;
 
+}
+.footer__number{
+    font-size: 11px;
+    color: white;
+    margin-top: 16px;
+}
+.footer__container{
+    max-width: 850px;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 @media screen and (max-width: 1250px) {
     .application {
         display: flex;
@@ -1042,6 +1066,9 @@ body{
         background-position: bottom;
         border-radius: 20px;
         margin-bottom: 64px;
+      }
+      .footer{
+        padding: 40px;
       }
       
 }

@@ -7,6 +7,9 @@ body{
     background-color: #3E4756;
     font-family: 'Inter', sans-serif;
 }
+.wrapper{
+    padding: 0 15px;
+}
 .header > *{
     margin: auto;
     text-align: center;

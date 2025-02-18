@@ -11,43 +11,24 @@ let swiperVideos = new Swiper('.mySwiperVideos', {
         el: '.custom-swiper-pagination-video',
         type: 'progressbar',
     },
-    allowTouchMove: false,
-    slideToClickedSlide: false,
+    allowTouchMove: true, // Включаем свайпы для всех устройств
     breakpoints: {
         320: {
             slidesPerView: 2,
             spaceBetween: 10,
+            allowTouchMove: true, // Разрешаем свайп на мобильных устройствах
         },
         576: {
             slidesPerView: 3,
             spaceBetween: 15,
+            allowTouchMove: true, // Разрешаем свайп на мобильных устройствах
         },
         950: {
             slidesPerView: 6,
             spaceBetween: 10,
-            simulateTouch: false,
+            allowTouchMove: false, // Отключаем свайпы на больших экранах
         }
     },
-    on: {
-        init: function () {
-            if (this.isBeginning) {
-                document.querySelector('.custom-prev-video').classList.add('disabled');
-            }
-            if (this.isEnd) {
-                document.querySelector('.custom-next-video').classList.add('disabled');
-            }
-        },
-        reachBeginning: function () {
-            document.querySelector('.custom-prev-video').classList.add('disabled');
-        },
-        reachEnd: function () {
-            document.querySelector('.custom-next-video').classList.add('disabled');
-        },
-        fromEdge: function () {
-            document.querySelector('.custom-prev-video').classList.remove('disabled');
-            document.querySelector('.custom-next-video').classList.remove('disabled');
-        }
-    }
 });
 
 // Инициализация Swiper для изображений
@@ -63,21 +44,22 @@ let swiperImages = new Swiper('.mySwiperImages', {
         el: '.custom-swiper-pagination-image',
         type: 'progressbar',
     },
-    allowTouchMove: false,
-    slideToClickedSlide: false,
+    allowTouchMove: true, // Включаем свайпы для всех устройств
     breakpoints: {
         320: {
             slidesPerView: 2,
             spaceBetween: 10,
+            allowTouchMove: true, // Разрешаем свайп на мобильных устройствах
         },
         576: {
             slidesPerView: 3,
             spaceBetween: 15,
+            allowTouchMove: true, // Разрешаем свайп на мобильных устройствах
         },
         950: {
             slidesPerView: 6,
             spaceBetween: 10,
-            simulateTouch: false,
+            allowTouchMove: false, // Отключаем свайпы на больших экранах
         }
     },
     on: {

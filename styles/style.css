@@ -531,6 +531,7 @@ body{
     justify-content: center;
     border-radius: 25px;
     object-fit: cover;
+    background: #7B8697;
   }
   
 
@@ -642,6 +643,9 @@ body{
   }
   .reviews__images{
     margin-bottom: 48px;
+  }
+  .reviews{
+    margin-bottom: 96px;
   }
 @media screen and (max-width: 920px) {
     .header__exchange {
@@ -785,6 +789,9 @@ body{
       }
       .reviews__link{
         margin: auto;
+      }
+      .reviews{
+        margin-bottom: 64px;
       }
     
 }

@@ -86,7 +86,10 @@
             
                 <div class="header__exchange-block">
                     <label for="amount" class="header__exchange-label">Отдаете:</label>
-                    <input type="text" id="amount" class="header__exchange-input" placeholder="Введите сумму" oninput="updateReceivedAmount()">
+                    <input type="text" id="amount" class="header__exchange-input" placeholder="Введите сумму" 
+                        inputmode="decimal" pattern="[0-9]*[.]?[0-9]*" 
+                        onkeypress="return validateInput(event)" 
+                        oninput="updateReceivedAmount()">
                 </div>
             
                 <div class="header__exchange-block">
@@ -573,6 +576,24 @@ document.addEventListener("DOMContentLoaded", function() {
     Fancybox.bind("[data-fancybox='gallery']", {});
 });
 </script>
+
+<script>
+    function validateInput(event) {
+        const char = String.fromCharCode(event.charCode);
+        const input = event.target;
+        
+        if (!/[0-9.]/.test(char)) {
+            return false;
+        }
+        
+        if (char === '.' && input.value.includes('.')) {
+            return false;
+        }
+        
+        return true;
+    }
+    </script>
+    
 
 
 </body>

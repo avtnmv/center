@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 body{
     background-color: #3E4756;
@@ -44,7 +45,8 @@ body{
 .header__description-bold{
     font-weight: 500;
 }
-.header__exchange{
+/* Основной контейнер */
+.header__exchange {
     max-width: 980px;
     margin: auto;
     background-color: #fff;
@@ -54,152 +56,153 @@ body{
     align-items: center;
     justify-content: space-between;
 }
-.header__exchange-block{
+
+/* Блоки элементов */
+.header__exchange-block {
     display: flex;
     flex-direction: column;
     gap: 12px;
     text-align: left;
     position: relative;
+    min-height: 75px; /* Фиксированная высота */
 }
-.header__exchange-label{
+
+/* Лейблы */
+.header__exchange-label {
     color: #6A6969;
     font-size: 14px;
     margin-left: 15px;
 }
-.header__exchange-select {
-    width: 195px;
-    height: 45px;
-    background-color: #EBEAEA;
-    border: 1px solid #EBEAEA;
-    color: black;
-    border-radius: 10px;
-    padding: 0 15px;
-    font-size: 16px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    position: relative;
-    outline: none;
-    cursor: pointer;
-}
 
-.header__exchange-arrow {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(50%);
-    width: 15px;
-    pointer-events: none;
-}
-.header__exchange-input{
-    width: 195px;
-    height: 45px;
-    background-color: #EBEAEA;
-    border: 1px solid #EBEAEA;
-    border-radius: 10px;
-    padding: 0 15px;
-    font-size: 16px;
-    outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-.header__exchange-select--yellow {
-    background-color: rgba(251, 237, 160);
-    appearance: none;
-    border: 1px solid rgba(251, 237, 160);
-    border-radius: 10px;
-    height: 35px;
-    width: 55px;
-    padding: 0 5px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    position: relative;
-    outline: none;
-    font-size: 15px;
-    color: transparent;
-    background-position: left 5px center !important;
-    cursor: pointer;
-  }
-.header__exchange-line {
-    width: 195px;
-    height: 45px;
-    padding-right: 5px;
-    padding-left: 15px;
-    background-color: #FEDD2B;
-    display: flex;
-    align-items: center; 
-    justify-content: space-between;
-    gap: 12px; 
-    border-radius: 10px;
-}
+/* Общие стили для кастомных селектов */
 .custom-select {
     position: relative;
     width: 195px;
-    height: 45px;
+    min-height: 45px;
     background-color: #EBEAEA;
     border: 1px solid #EBEAEA;
     border-radius: 10px;
     padding: 0 15px;
     font-size: 16px;
     cursor: pointer;
-}
-
-.custom-select__selected {
     display: flex;
     align-items: center;
-    height: 100%;
+}
+
+/* Стили для селекта получения */
+.receive-select {
+    background-color: rgba(254, 221, 43, 0.5);
+    border-color: rgba(254, 221, 43, 0.5);
+    width: auto;
+    margin-left: 5px; /* Прижимаем к правому краю */
+    padding: 0 5px;
+}
+
+/* Контейнер иконки и стрелки */
+.currency-preview {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 6px;
+}
+
+/* Стрелки */
+.header__custom-select-arrow {
+    width: 15px;
+    pointer-events: none;
+    transition: transform 0.3s;
+}
+
+
+/* Выпадающий список */
+.custom-select__options {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: -1px;
+    background-color: #EBEAEA;
+    border-radius: 10px;
+    z-index: 1000;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    width: 195px;
+}
+
+/* Открытое состояние списка */
+.custom-select__options.show {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* Поле ввода */
+.header__exchange-input {
+    width: 195px;
+    height: 45px;
+    background-color: #EBEAEA;
+    border: 1px solid #EBEAEA;
+    border-radius: 10px;
+    padding: 0 15px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Блок получаемой суммы */
+.header__exchange-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 195px;
+    gap: 10px;
+    background-color: #FEDD2B;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+/* Отображение суммы */
+.header__exchange-received-amount {
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    opacity: 0;
+    width: 0;
+    min-width: 80px;
+    text-align: right;
 }
 
 .custom-select__icon {
     width: 20px;
     height: 20px;
-    margin-right: 10px;
 }
 
-.custom-select__text {
-    flex-grow: 1;
-}
-
-.custom-select__options {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: #EBEAEA;
-        border: 1px solid #EBEAEA;
-        border-radius: 10px;
-        z-index: 1000;
-        margin-top: 5px;
-        max-height: 0; /* Изначально скрыто */
-        overflow: hidden; /* Скрываем все, что выходит за пределы */
-        opacity: 0;
-        transition: max-height 0.3s ease, opacity 0.3s ease; /* Плавное появление */
+.custom-select:not(.receive-select) .header__custom-select-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .custom-select__option {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    gap: 8px;
 }
 
 .custom-select__option:hover {
     background-color: #D9D9D9;
 }
 
-.custom-select__options.show {
-    max-height: 500px; /* Ограничиваем максимальную высоту, чтобы список не вылезал */
-    opacity: 1;
-}
-.header__custom-select-arrow{
-    position: absolute;
-    right: 10px;
-    transform: translateY(100%);
-    width: 15px;
-    pointer-events: none;
+.custom-select__selected{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
 }
 .header__link{
     margin: auto;
@@ -721,7 +724,6 @@ body{
 
 .accordion-content p {
     margin: 0;
-    padding-top: 12px;
     width: 100%; /* Убедитесь, что текст не выходит за пределы */
 }
 
@@ -863,6 +865,28 @@ body{
 .footer__span--yellow{
     color: #FEDD2B !important;
 }
+.accordion__link-block-second-link{
+    background-color: #FEDD2B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+    text-decoration: none;
+    max-width: 330px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    font-size: 20px;
+}
+.bold{
+    font-weight: 600;
+}
+.accordion__link-block-ul{
+    list-style: none;
+    margin-left: 10px;
+}
 @media screen and (max-width: 1250px) {
     .application {
         display: flex;
@@ -987,6 +1011,10 @@ body{
         border-radius: 20px;
         background-color: #FEDD2B;
         border-radius: 80px;
+      }
+      .accordion-header{
+        padding-top: 56px;
+        font-size: 19px;
       }
 }
 

@@ -1,165 +1,265 @@
-function updateReceiveOptions(selectedCurrency) {
-    const receiveSelect = document.getElementById("receive");
-
-    const receiveOptions = {
-        usdt: ["usd", "try"],
-        rub: ["try", "usd"],
-        uah: ["try"],
-        usd: ["usdt", "try"],
-        eur: ["usdt"]
-    };
-
-    const currencyNames = {
-        usdt: "Tether USDT",
-        rub: "RUB с карты",
-        uah: "UAH с карты",
-        usd: "USD наличные",
-        eur: "EUR наличные",
-        try: "TRY наличные"
-    };
-
-    const currencyFlags = {
-        usdt: "./assets/images/usdt-icon.svg",
-        rub: "./assets/images/rub-icon.svg",
-        uah: "./assets/images/uah-icon.svg",
-        usd: "./assets/images/usd-icon.svg",
-        eur: "./assets/images/eur-icon.svg",
-        try: "./assets/images/try-icon.svg"
-    };
-
-    receiveSelect.innerHTML = ""; 
-
-    if (receiveOptions[selectedCurrency]) {
-        receiveOptions[selectedCurrency].forEach(val => {
-            let option = document.createElement("option");
-            option.value = val;
-            option.textContent = currencyNames[val]; 
-            option.dataset.flag = currencyFlags[val]; 
-            receiveSelect.appendChild(option);
-        });
-    }
-
-    if (receiveSelect.options.length > 0) {
-        receiveSelect.value = receiveSelect.options[0].value;
-        updateFlag(receiveSelect); 
-    }
-
-    updateReceivedAmount(); 
-}
-
-function updateFlag(select) {
-    const selectedOption = select.options[select.selectedIndex];
-    const flagPath = selectedOption.dataset.flag;
-    select.style.backgroundImage = `url(${flagPath})`;
-    select.style.backgroundRepeat = "no-repeat";
-    select.style.backgroundPosition = "left center";
-    select.style.backgroundSize = "20px";
-}
-
-async function updateReceivedAmount() {
-    const amount = parseFloat(document.getElementById("amount").value);
-    const selected = document.querySelector(".custom-select__selected");
-    const currency = selected ? selected.dataset.value : null; // Берем валюту из кастомного селекта
-    const receiveSelect = document.getElementById("receive");
-
-    if (!amount || amount <= 0 || !currency || receiveSelect.options.length === 0) {
-        document.getElementById("received-amount").textContent = "";
-        return;
-    }
-
-    const receiveCurrency = receiveSelect.value;
-
-    try {
-        const exchangeRates = await fetchExchangeRates(currency, receiveCurrency);
-        if (exchangeRates && exchangeRates.rate) {
-            const receivedAmount = (amount * exchangeRates.rate).toFixed(2);
-            document.getElementById("received-amount").textContent = `${receivedAmount}`;
-        } else {
-            document.getElementById("received-amount").textContent = "Ошибка получения курса";
-        }
-    } catch (error) {
-        console.error("Ошибка при получении курса:", error);
-        document.getElementById("received-amount").textContent = "Ошибка получения курса";
-    }
-}
-
-// Функция API (заглушка)
-async function fetchExchangeRates(fromCurrency, toCurrency) {
-    // Заглушка
-    return { rate: 1.0 };
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const selected = document.querySelector(".custom-select__selected");
-    if (selected && !selected.dataset.value) {
-        selected.dataset.value = "usdt";
-    }
-
-    updateReceiveOptions('usdt');
-
+document.addEventListener('DOMContentLoaded', function() {
+    initSelects();
+    selectOption('usdt', 'currency');
     updateReceivedAmount();
 });
 
-const receiveSelect = document.getElementById("receive");
-receiveSelect.addEventListener("change", function () {
-    updateFlag(receiveSelect); 
-    updateReceivedAmount(); 
-});
+function initSelects() {
+    const selects = {
+        currency: {
+            selector: '.currency-select .custom-select__selected',
+            defaultValue: 'usdt'
+        },
+        city: {
+            selector: '.city-select .custom-select__selected',
+            defaultValue: 'Стамбул'
+        },
+        receive: {
+            selector: '#receive-selected',
+            defaultValue: 'try'
+        }
+    };
 
-function selectOption(value) {
-    const selected = document.querySelector(".custom-select__selected");
-    const options = document.querySelectorAll(".custom-select__option");
-    const selectedOption = Array.from(options).find(option => option.dataset.value === value);
-
-    if (selectedOption) {
-        selected.innerHTML = selectedOption.innerHTML;
-        selected.dataset.value = value;  
-        updateReceiveOptions(value);  
-    }
-
-    toggleCustomSelect();
-}
-
-function toggleCustomSelect() {
-    const options = document.getElementById("custom-select-options");
-    options.classList.toggle("show");
-}
-
-window.onclick = function(event) {
-    const customSelect = document.querySelector(".custom-select");
-    const options = document.getElementById("custom-select-options");
-
-    if (!customSelect.contains(event.target) && options.classList.contains('show')) {
-        options.classList.remove('show');
-    }
-}
-
-document.querySelectorAll('.custom-select').forEach(select => {
-    select.addEventListener("click", function() {
-        toggleCustomSelect();
+    Object.entries(selects).forEach(([type, config]) => {
+        const selected = document.querySelector(config.selector);
+        if (selected && !selected.dataset.value) {
+            selected.dataset.value = config.defaultValue;
+            if (type === 'receive') initReceiveOptions();
+        }
     });
-});
+}
 
-function toggleCustomSelect() {
-    const options = document.getElementById("custom-select-options");
+function initReceiveOptions() {
+    updateReceiveOptions('usdt');
+}
+
+function updateReceiveOptions(selectedCurrency) {
+    const receiveOptions = {
+        usdt: [
+            {value: "usd", text: "USD наличные", icon: "./assets/images/usd-icon.svg"},
+            {value: "try", text: "TRY наличные", icon: "./assets/images/try-icon.svg"}
+        ],
+        rub: [
+            {value: "try", text: "TRY наличные", icon: "./assets/images/try-icon.svg"},
+            {value: "usd", text: "USD наличные", icon: "./assets/images/usd-icon.svg"}
+        ],
+        uah: [
+            {value: "try", text: "TRY наличные", icon: "./assets/images/try-icon.svg"}
+        ],
+        usd: [
+            {value: "usdt", text: "Tether USDT", icon: "./assets/images/usdt-icon.svg"},
+            {value: "try", text: "TRY наличные", icon: "./assets/images/try-icon.svg"}
+        ],
+        eur: [
+            {value: "usdt", text: "Tether USDT", icon: "./assets/images/usdt-icon.svg"}
+        ]
+    };
+
+    const optionsContainer = document.getElementById("receive-select-options");
+    optionsContainer.innerHTML = '';
+
+    if (receiveOptions[selectedCurrency]) {
+        receiveOptions[selectedCurrency].forEach(option => {
+            const div = document.createElement("div");
+            div.className = "custom-select__option";
+            div.dataset.value = option.value;
+            div.onclick = () => selectOption(option.value, 'receive');
+            div.innerHTML = `
+                <img src="${option.icon}" class="custom-select__icon" alt="${option.value}-icon">
+                <span class="custom-select__text">${option.text}</span>
+            `;
+            optionsContainer.appendChild(div);
+        });
+    }
+
+    if (receiveOptions[selectedCurrency]?.[0]) {
+        const firstOption = receiveOptions[selectedCurrency][0];
+        const selected = document.querySelector("#receive-selected");
+        selected.innerHTML = `
+            <div class="currency-preview">
+                <img src="${firstOption.icon}" class="custom-select__icon" alt="${firstOption.value}-icon">
+                <svg class="header__custom-select-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/>
+                </svg>
+            </div>
+        `;
+        selected.dataset.value = firstOption.value;
+    }
+}
+
+function toggleCustomSelect(type) {
+    const optionsMap = {
+        currency: "#custom-select-options",
+        city: "#city-select-options",
+        receive: "#receive-select-options"
+    };
+
     const link = document.querySelector(".header__link");
+    const options = document.querySelector(optionsMap[type]);
 
-    if (!options || !link) {
-        console.error("Элементы не найдены: options или link");
+    if (!options || !link) return;
+
+    Object.values(optionsMap).forEach(selector => {
+        const otherOptions = document.querySelector(selector);
+        if (selector !== optionsMap[type]) {
+            otherOptions.classList.remove('show');
+        }
+    });
+
+    const wasOpen = options.classList.contains('show');
+    options.classList.toggle('show');
+
+    if (type === 'currency') {
+        const windowWidth = window.innerWidth;
+        link.style.marginTop = options.classList.contains('show') 
+            ? (windowWidth > 920 ? "180px" : "64px")
+            : "64px";
+    } else {
+        if (wasOpen) link.style.marginTop = "64px";
+    }
+}
+
+function selectOption(value, type) {
+    const selectors = {
+        currency: {
+            selected: ".currency-select .custom-select__selected",
+            options: "#custom-select-options"
+        },
+        city: {
+            selected: ".city-select .custom-select__selected",
+            options: "#city-select-options"
+        },
+        receive: {
+            selected: "#receive-selected",
+            options: "#receive-select-options"
+        }
+    };
+
+    const config = selectors[type];
+    if (!config) return;
+
+    const selectedElement = document.querySelector(config.selected);
+    const optionsContainer = document.querySelector(config.options);
+
+    if (optionsContainer) {
+        const selectedOption = Array.from(optionsContainer.children)
+            .find(option => option.dataset.value === value);
+
+        if (selectedOption) {
+            switch(type) {
+                case 'city':
+                    selectedElement.innerHTML = selectedOption.innerHTML;
+                    selectedElement.dataset.value = value;
+                    break;
+                    
+                case 'currency':
+                    selectedElement.innerHTML = selectedOption.innerHTML;
+                    selectedElement.dataset.value = value;
+                    updateReceiveOptions(value);
+                    break;
+                    
+                case 'receive':
+                    const iconSrc = selectedOption.querySelector('img').src;
+                    selectedElement.innerHTML = `
+                        <div class="currency-preview">
+                            <img src="${iconSrc}" class="custom-select__icon" alt="${value}-icon">
+                            <svg class="header__custom-select-arrow" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/>
+                            </svg>
+                        </div>
+                    `;
+                    selectedElement.dataset.value = value;
+                    break;
+            }
+            
+            optionsContainer.classList.remove('show');
+            if (type === 'currency') {
+                document.querySelector(".header__link").style.marginTop = "64px";
+            }
+        }
+    }
+    updateReceivedAmount();
+}
+
+async function updateReceivedAmount() {
+    const amountInput = document.getElementById("amount");
+    const amount = parseFloat(amountInput.value);
+    const currency = document.querySelector(".currency-select .custom-select__selected")?.dataset.value;
+    const receiveCurrency = document.querySelector("#receive-selected")?.dataset.value;
+    const outputElement = document.getElementById("received-amount");
+
+    if (!amount || amount <= 0 || isNaN(amount) || !currency || !receiveCurrency) {
+        outputElement.style.opacity = '0';
+        outputElement.style.width = '0';
         return;
     }
 
-    options.classList.toggle("show");
-
-    const windowWidth = window.innerWidth;
-
-    if (options.classList.contains("show")) {
-        if (windowWidth > 920) {
-            link.style.marginTop = "180px";  
+    try {
+        const exchangeRates = await fetchExchangeRates(currency, receiveCurrency);
+        if (exchangeRates?.rate) {
+            outputElement.textContent = (amount * exchangeRates.rate).toFixed(2);
+            outputElement.style.opacity = '1';
+            outputElement.style.width = 'auto';
         } else {
-            link.style.marginTop = "64px";  
+            outputElement.textContent = "Ошибка курса";
         }
-    } else {
-        link.style.marginTop = "64px"; 
+    } catch (error) {
+        console.error("Ошибка:", error);
+        outputElement.textContent = "Ошибка";
     }
 }
+
+function validateInput(event) {
+    const charCode = event.which || event.keyCode;
+    const value = event.target.value;
+    
+    if ((charCode === 46 && value.includes('.')) || 
+        (charCode !== 46 && charCode > 31 && (charCode < 48 || charCode > 57))) {
+        return false;
+    }
+    return true;
+}
+
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.custom-select')) {
+        document.querySelectorAll('.custom-select__options').forEach(options => {
+            options.classList.remove('show');
+        });
+
+        const currencyOptions = document.querySelector("#custom-select-options");
+        if (currencyOptions.classList.contains('show')) {
+            document.querySelector(".header__link").style.marginTop = "64px";
+        }
+    }
+});
+
+async function fetchExchangeRates(fromCurrency, toCurrency) {
+    const mockRates = {
+        'usdt-try': 32.5,
+        'usdt-usd': 1.0,
+        'rub-try': 0.35,
+        'rub-usd': 0.011,
+        'uah-try': 0.85,
+        'usd-usdt': 1.0,
+        'usd-try': 32.5,
+        'eur-usdt': 1.05
+    };
+    
+    await new Promise(resolve => setTimeout(resolve, 100));
+    return {rate: mockRates[`${fromCurrency}-${toCurrency}`] || null};
+}
+
+document.getElementById("amount").addEventListener("input", updateReceivedAmount);
+document.querySelectorAll('.custom-select').forEach(select => {
+    select.addEventListener("click", function(e) {
+        if (!e.target.closest('.custom-select__option')) {
+            const type = this.classList.contains('city-select') ? 'city' 
+                : this.classList.contains('receive-select') ? 'receive' 
+                : 'currency';
+            toggleCustomSelect(type);
+        }
+    });
+});
+
+//
+

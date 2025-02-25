@@ -310,7 +310,7 @@ body{
     color: white;
     text-align: center;
     font-weight: 300px;
-    margin-bottom: 12px;
+    margin-bottom: 36px;
 }
 .work-process__link{
     margin: auto;
@@ -325,6 +325,7 @@ body{
     border-radius: 15px;
     gap: 8px;
     color: black;
+    margin-top: 48px;
 }
 .currency-rates {
     background-image: url(../assets/images/bg.png);
@@ -916,7 +917,13 @@ body{
         background-color: #FEDD2B;
         border-radius: 80px;
       }
-    
+    .work-process__video{
+        width: 330px;
+        height: 140px;
+        text-align: center;
+        margin: auto;
+        display: block;
+    }
 }
 
 @media screen and (max-width: 810px) {

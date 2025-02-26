@@ -13,7 +13,6 @@ function updateNavigationButtons(swiper, prevBtn, nextBtn) {
     }
 }
 
-// Инициализация Swiper для видео
 let swiperVideos = new Swiper('.mySwiperVideos', {
     slidesPerView: 6,
     spaceBetween: 10,
@@ -54,7 +53,6 @@ let swiperVideos = new Swiper('.mySwiperVideos', {
     }
 });
 
-// Инициализация Swiper для изображений
 let swiperImages = new Swiper('.mySwiperImages', {
     slidesPerView: 6,
     spaceBetween: 10,

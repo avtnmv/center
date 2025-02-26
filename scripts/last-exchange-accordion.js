@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let hiddenItems = [];
     let isOpen = false;
 
-    // Инициализация скрытых элементов
     function init() {
         const items = document.querySelectorAll(".last-exchange__item");
         const isDesktop = window.matchMedia("(min-width: 768px)").matches;

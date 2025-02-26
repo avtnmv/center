@@ -45,7 +45,7 @@ body{
 .header__description-bold{
     font-weight: 500;
 }
-/* Основной контейнер */
+
 .header__exchange {
     max-width: 980px;
     margin: auto;
@@ -57,24 +57,20 @@ body{
     justify-content: space-between;
 }
 
-/* Блоки элементов */
 .header__exchange-block {
     display: flex;
     flex-direction: column;
     gap: 12px;
     text-align: left;
     position: relative;
-    min-height: 75px; /* Фиксированная высота */
+    min-height: 75px; 
 }
 
-/* Лейблы */
 .header__exchange-label {
     color: #6A6969;
     font-size: 14px;
     margin-left: 15px;
 }
-
-/* Общие стили для кастомных селектов */
 .custom-select {
     position: relative;
     width: 195px;
@@ -89,16 +85,15 @@ body{
     align-items: center;
 }
 
-/* Стили для селекта получения */
 .receive-select {
     background-color: rgba(254, 221, 43, 0.5);
     border-color: rgba(254, 221, 43, 0.5);
     width: auto;
-    margin-left: 5px; /* Прижимаем к правому краю */
+    margin-left: 5px; 
     padding: 0 5px;
 }
 
-/* Контейнер иконки и стрелки */
+
 .currency-preview {
     display: flex;
     align-items: center;
@@ -109,15 +104,12 @@ body{
     padding: 6px;
 }
 
-/* Стрелки */
 .header__custom-select-arrow {
     width: 15px;
     pointer-events: none;
     transition: transform 0.3s;
 }
 
-
-/* Выпадающий список */
 .custom-select__options {
     position: absolute;
     top: calc(100% + 5px);
@@ -132,13 +124,11 @@ body{
     width: 195px;
 }
 
-/* Открытое состояние списка */
 .custom-select__options.show {
     max-height: 500px;
     opacity: 1;
 }
 
-/* Поле ввода */
 .header__exchange-input {
     width: 195px;
     height: 45px;
@@ -150,7 +140,6 @@ body{
     outline: none;
 }
 
-/* Блок получаемой суммы */
 .header__exchange-line {
     display: flex;
     align-items: center;
@@ -162,7 +151,6 @@ body{
     padding-left: 10px;
 }
 
-/* Отображение суммы */
 .header__exchange-received-amount {
     font-size: 16px;
     font-weight: bold;
@@ -453,10 +441,10 @@ body{
 }
 .offices__image{
 
-    width: 100%; /* Растягивается на всю ширину родителя */
-    max-width: 850px; /* Ограничение, чтобы не было слишком большим */
-    height: auto; /* Сохраняет пропорции */
-    margin: 0 auto; /* Центрирование */
+    width: 100%; 
+    max-width: 850px; 
+    height: auto; 
+    margin: 0 auto;
     position: relative;
     z-index: -1;
 
@@ -567,7 +555,6 @@ body{
   position: relative !important;
 }
 
-/* Полоса прогресс-бара */
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
   background-color: white !important;
 }
@@ -625,9 +612,9 @@ body{
     border-radius: 30px;
     margin: auto;
     transition: background-color 0.3s ease-in-out;
-    min-height: 110px; /* Минимальная высота */
-    max-height: 110px; /* Максимальная высота в закрытом состоянии */
-    padding-bottom: 20px; /* Отступ снизу */
+    min-height: 110px; 
+    max-height: 110px; 
+    padding-bottom: 20px; 
 }
 .accordion-container{
     margin-top: 64px;
@@ -687,16 +674,16 @@ body{
 
 .accordion-content p {
     margin: 0;
-    width: 100%; /* Убедитесь, что текст не выходит за пределы */
+    width: 100%; 
 }
 
 .accordion.active {
-    background-color: white; /* Белый фон при открытии */
+    background-color: white; 
 }
 
 .accordion-question.active {
-    background-color: black; /* Черный фон для вопроса */
-    color: white; /* Белый цвет текста */
+    background-color: black; 
+    color: white; 
 }
 
 .accordion-content {
@@ -1147,7 +1134,6 @@ body{
       .footer__number{
         max-width: 290px;
       }
-      
 }
 
 

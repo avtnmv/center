@@ -139,24 +139,44 @@
                 <div class="last-exchange__container">
                     <h3 class="last-exchange__title">Последние обмены:</h3>
                     <div class="last-exchange__list">
-                        <div class="last-exchange__item"> 
+                        <!-- Первые 8 элементов -->
+                        <div class="last-exchange__item">
                             <p class="last-exchange__date">03.01.2025, 14:50</p>
-                            <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                            <p class="last-exchange__rate">12 000 USDT → 11 930 USD</p>
                         </div>
-                        <div class="last-exchange__item"> 
+                        <div class="last-exchange__item">
                             <p class="last-exchange__date">03.01.2025, 14:50</p>
-                            <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                            <p class="last-exchange__rate">8 500 USDT → 8 450 USD</p>
                         </div>
-                        <div class="last-exchange__item last-exchange__item--hidden"> 
+                        <div class="last-exchange__item">
                             <p class="last-exchange__date">03.01.2025, 14:50</p>
-                            <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                            <p class="last-exchange__rate">5 200 USDT → 5 180 USD</p>
                         </div>
-                        <div class="last-exchange__item last-exchange__item--hidden"> 
+                        <div class="last-exchange__item">
                             <p class="last-exchange__date">03.01.2025, 14:50</p>
-                            <p class="last-exchange__rate">12 000 USDT -> 11 930 USD</p>
+                            <p class="last-exchange__rate">15 000 USDT → 14 900 USD</p>
                         </div>
+                        <div class="last-exchange__item last-exchange__item--hidden">
+                            <p class="last-exchange__date">03.01.2025, 14:50</p>
+                            <p class="last-exchange__rate">9 300 USDT → 9 250 USD</p>
+                        </div>
+                        <div class="last-exchange__item last-exchange__item--hidden">
+                            <p class="last-exchange__date">03.01.2025, 14:50</p>
+                            <p class="last-exchange__rate">7 100 USDT → 7 060 USD</p>
+                        </div>
+                        <div class="last-exchange__item last-exchange__item--hidden">
+                            <p class="last-exchange__date">03.01.2025, 14:50</p>
+                            <p class="last-exchange__rate">6 000 USDT → 5 970 USD</p>
+                        </div>
+                        <div class="last-exchange__item last-exchange__item--hidden">
+                            <p class="last-exchange__date">03.01.2025, 14:50</p>
+                            <p class="last-exchange__rate">10 500 USDT → 10 440 USD</p>
+                        </div>
+                        
                         <button class="last-exchange__toggle">
-                            <svg class="last-exchange__toggle-icon" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/></svg>
+                            <svg class="last-exchange__toggle-icon" viewBox="0 -4.5 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 1.39 18.594 0 9.987 8.261l-.918-.881.005.005L1.427.045 0 1.414 9.987 11z" fill-rule="evenodd"/>
+                            </svg>
                         </button>
                     </div>
                 </div>
@@ -708,26 +728,13 @@
 
     </footer>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const buttons = document.querySelectorAll(".currency-rates__button");
-
-        buttons.forEach(button => {
-            button.addEventListener("click", function() {
-                buttons.forEach(btn => btn.classList.remove("currency-rates__button--active"));
-                
-                this.classList.add("currency-rates__button--active");
-            });
-        });
-    });
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 <script src="./scripts/slider.js"></script>
 <script src="./scripts/currency.js"></script>
 <script src="./scripts/last-exchange-accordion.js"></script>
 <script src="./scripts/accordion.js"></script>
+<script src="./scripts/currancy-rates.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {

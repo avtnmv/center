@@ -254,43 +254,6 @@ body{
     margin: auto;
 }
 
-.last-exchange__list {
-    background-color: #fff;
-    padding: 20px;
-    display: flex;
-    gap: 10px;
-    border-radius: 10px;
-    justify-content: space-between;
-}
-
-.last-exchange__item--hidden {
-    max-height: 0;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
-.last-exchange__item--visible {
-    max-height: 100px;
-    opacity: 1;
-}
-
-.last-exchange__toggle {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    display: none;
-    -webkit-tap-highlight-color: transparent;
-    
-}
-
-.last-exchange__toggle--open {
-    transform: rotate(180deg);
-}
-
-.last-exchange__toggle-icon {
-    width: 20px;
-}
 .work-process{
     max-width: 980px;
     margin: auto;
@@ -887,6 +850,53 @@ body{
     list-style: none;
     margin-left: 10px;
 }
+
+.last-exchange__container {
+    margin: auto;
+    width: 980px;
+    margin-bottom: 96px;
+}
+
+.last-exchange__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    position: relative;
+    place-items: center;
+    padding-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.last-exchange__item--hidden {
+    display: none;
+}
+
+.last-exchange__toggle {
+    grid-column: 1/-1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.last-exchange__toggle-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s;
+}
+
+.last-exchange__toggle--open .last-exchange__toggle-icon {
+    transform: rotate(180deg);
+}
+.work-process__video{
+    width: 980px;
+    height: 551px;
+}
+
+
 @media screen and (max-width: 1250px) {
     .application {
         display: flex;
@@ -930,6 +940,26 @@ body{
         padding-bottom: 45px;
         padding-top: 45px;
     }
+    
+    .last-exchange__list {
+        grid-template-columns: 1fr;
+        place-items: unset;
+        width: 210px;
+        padding: 20px;
+      }
+      .last-exchange{
+        display: flex;
+      }
+    
+    .last-exchange__container {
+        margin-bottom: 60px;
+        padding: 0 10px;
+    }
+    
+    .last-exchange__title {
+        margin-left: 0;
+    }
+
     .currency-rates {
         border-radius: 40px;
         padding: 40px;
@@ -949,7 +979,6 @@ body{
         display: block;
     }
 }
-
 @media screen and (max-width: 810px) {
     .header__description {
         gap: 16px;

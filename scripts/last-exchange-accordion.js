@@ -1,17 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
     const toggleButton = document.querySelector(".last-exchange__toggle");
-    const hiddenItems = document.querySelectorAll(".last-exchange__item--hidden");
+    let hiddenItems = [];
     let isOpen = false;
+
+    // Инициализация скрытых элементов
+    function init() {
+        const items = document.querySelectorAll(".last-exchange__item");
+        const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+        
+        items.forEach((item, index) => {
+            if (isDesktop && index >= 4) {
+                item.classList.add("last-exchange__item--hidden");
+                hiddenItems.push(item);
+            } else if (!isDesktop && index >= 2) {
+                item.classList.add("last-exchange__item--hidden");
+                hiddenItems.push(item);
+            }
+        });
+    }
+
+    init();
 
     toggleButton.addEventListener("click", function() {
         isOpen = !isOpen;
-        hiddenItems.forEach(item => {
-            if (isOpen) {
-                item.classList.add("last-exchange__item--visible");
-            } else {
-                item.classList.remove("last-exchange__item--visible");
-            }
+        const showItems = window.matchMedia("(min-width: 768px)").matches ? 4 : 6;
+        
+        hiddenItems.slice(0, showItems).forEach(item => {
+            item.classList.toggle("last-exchange__item--hidden", !isOpen);
         });
-        toggleButton.classList.toggle("last-exchange__toggle--open");
+        
+        this.classList.toggle("last-exchange__toggle--open", isOpen);
+        
     });
 });

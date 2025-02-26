@@ -975,8 +975,10 @@ body{
         gap: 12px;
     }
     .last-exchange__container {
-        max-width: 200px;
         margin-bottom: 64px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .last-exchange__toggle {
         display: block;

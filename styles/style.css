@@ -882,6 +882,10 @@ body{
     width: 980px;
     height: 551px;
 }
+.accordion__link-block p{
+    list-style-type: circle;
+}
+
 
 
 @media screen and (max-width: 1250px) {
